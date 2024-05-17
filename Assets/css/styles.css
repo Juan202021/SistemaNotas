@@ -1,0 +1,463 @@
+/* Estilos para todo el documento en general */
+body {
+    margin: 0px;
+    background-color: #f2f3f7;
+}
+
+/* Estilos para el header */
+#header {
+    width: 100%;
+    line-height: 1;
+    padding: 0px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /*z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+}
+
+.fondo_blanco {
+    background-color: white;
+    display: flex;
+    justify-content: left;
+    height: 90px;
+}
+
+#logo {
+    margin: 20px;
+}
+
+/* Estilos para el menú principal*/
+#container_menu {
+    margin: 0px;
+    height: 80px;
+}
+
+#menu {
+    background-color: white;
+    overflow: hidden;
+    padding: 0px;
+    height: 90px;
+}
+
+#menu a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    height: 70px;
+    display: flex;
+    /* Utiliza flexbox para el diseño */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    justify-content: center;
+    /* Centra horizontalmente los elementos */
+}
+
+#menu a:hover {
+    color: white;
+    background-color: #e33b3b;
+}
+
+/* Estilos para el menú de la izquierda*/
+.menu-izq {
+    height: 100%;
+    margin: 60px 20px;
+}
+
+.menu-izq-buttons {
+    color: black;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+    height: 20px;
+    display: flex;
+    /* Utiliza flexbox para el diseño */
+    /* border: 1px solid #bebebe; */
+    border-radius: 10px;
+}
+
+
+/*Estilos para el contenido y contenedores*/
+.contenido {
+    display: block;
+    justify-content: space-between;
+    /*Distribuye los elementos a lo largo del contenedor con espacio entre ellos */
+    align-items: center;
+    /* Alinea los elementos verticalmente en el centro */
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.contenido_flex {
+    display: flex;
+    justify-content: space-between;
+    /*Distribuye los elementos a lo largo del contenedor con espacio entre ellos */
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.contenido-central {
+    background-color: white;
+    margin: 10px 10px;
+    min-height: 700px;
+    width: 1500px;
+    border-radius: 10px;
+}
+
+/* .contenido-central-doble {
+    background-color: white;
+    margin: 10px 10px;
+    min-height: 700px;
+    width: 1300px;
+    border-radius: 10px;
+} */
+
+.contenido-unico {
+    display: block;
+    margin: 30px 100px;
+    padding-top: 10px;
+    min-height: 600px;
+    width: 90%;
+    border-radius: 50px;
+    background: linear-gradient(225deg, #fffdfd, #f0f0f0);
+    box-shadow: -20px 20px 60px #bebebe,
+        20px -20px 60px #ffffff;
+    /* border: 2px solid rgb(188, 188, 188); */
+}
+
+.contenido-izq {
+    background-color: white;
+    margin: 10px 10px;
+    margin-left: 20px;
+    height: 700px;
+    width: 360px;
+    display: inline;
+    border-radius: 10px;
+}
+
+.contenido-der {
+    background-color: white;
+    margin: 10px 10px;
+    margin-right: 20px;
+    min-height: 700px;
+    width: 1300px;
+    border-radius: 10px;
+}
+
+.espaciado {
+    display: block;
+    padding: 50px 0;
+    margin: 20px 20px;
+    line-height: 10px;
+    background-color: #cd2122;
+    border-radius: 50px;
+}
+
+#title {
+    color: white;
+    font-size: 40pt;
+}
+
+.sub-title {
+    font-size: 28px;
+    margin: 40px 0;
+    text-transform: uppercase;
+}
+
+.contenido-texto {
+    margin: 100px 200px;
+    font-size: 20pt;
+}
+
+/* Estilos para las tablas */
+.tbl {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 200px;
+    width: auto;
+    justify-content: center;
+    /* Centrar horizontalmente */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,td {
+    color: rgb(0, 0, 0);
+}
+
+th {
+    padding: 8px;
+    font-size: 18pt;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    background-color: white;
+}
+
+td {
+    font-size: 16pt;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.td-izq {
+    text-align: left;
+    align-items: left;
+}
+
+.td-cent {
+    text-align: center;
+    align-items: center;
+}
+
+.td-der {
+    text-align: right;
+    align-items: right;
+    justify-content: right;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f5f5f5;
+    /* Light gray for odd rows */
+}
+
+table tr:nth-child(even) {
+    background-color: #fff;
+    /* White for even rows */
+}
+
+/* Estilo para los selectores dentro de las tablas */
+a.button {
+    margin: 0px 0px;
+    display: block;
+    /* Hace que el enlace sea un bloque para ocupar todo el ancho */
+    width: 98%;
+    /* Ocupa todo el ancho del contenedor, es decir, la celda de la tabla */
+    height: 100%;
+    /* Ocupa todo el alto del contenedor si lo deseas */
+    padding: 8px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+a.button-big {
+    margin: 25px;
+    display: block;
+    /* Hace que el enlace sea un bloque para ocupar todo el ancho */
+    width: 220px;
+    height: 100px;
+    padding: 100px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 22pt;
+    border: 2px solid rgb(188, 188, 188);
+    border-radius: 30px;
+}
+
+a.button-big:hover {
+    color: black;
+    background-color: #fde0e0;
+}
+
+a:hover {
+    color: white;
+    background-color: #e33b3b;
+}
+
+.selected {
+    background-color: #e33b3b;
+    color: white;
+}
+
+/* Estilos para lista cursos y filtro */
+
+.list-container {
+    align-content: center;
+    padding: 80px;
+}
+
+.lista {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.container-filter {
+    height: 90px;
+    margin-left: 40px;
+}
+
+.filtro {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.ajuste-1 {
+    margin-left: 0px;
+    height: 42px;
+    width: 100px;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.ajuste-2 {
+    height: 18px;
+    width: 500px;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ajuste-3 {
+    height: 42px;
+    width: 120px;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+#f1 option {
+    border-radius: 10px;
+}
+
+#mitabla4 #td-button {
+    align-items: right;
+    justify-content: right; /* NO ESTA SIRVIENDO */
+} 
+
+/* Estilos para add button */
+/* a.add.button {
+    width: 60%;
+    padding: 8px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+} */
+
+a.add.button {
+    border: 2px solid #24b4fb;
+    background-color: #24b4fb;
+    border-radius: 30px;
+    padding: 3px 0px;
+    margin: 5px;
+    width: 30px;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+}
+
+a.add.button span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+}
+
+a.add.button:hover {
+    background-color: #0071e2;
+}
+
+/* Estilos para Delete button */
+/* a.delete.button {
+    width: 50%;
+    padding: 8px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+} */
+
+a.delete.button {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+a.delete.button svg {
+    width: 44%;
+}
+
+a.delete.button:hover {
+    background-color: rgb(237, 56, 56);
+    overflow: visible;
+}
+
+.bin path {
+    transition: all 0.2s;
+}
+
+a.delete.button:hover .bin path {
+    fill: #fff;
+}
+
+a.delete.button:active {
+    transform: scale(0.98);
+}
+
+.tooltip {
+    --tooltip-color: rgb(41, 41, 41);
+    position: absolute;
+    top: -40px;
+    background-color: var(--tooltip-color);
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 8px 12px;
+    font-weight: 600;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.105);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.tooltip::before {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    content: "";
+    background-color: var(--tooltip-color);
+    bottom: -10%;
+}
+
+a.delete.button:hover .tooltip {
+    opacity: 1;
+}
+
+/* Estilos para el pie de página */
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 25px 0;
+    line-height: 20px;
+    background-color: #cd2122;
+}
