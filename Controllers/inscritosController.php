@@ -2,7 +2,7 @@
 class inscritosController {
     private $model;
     public function __construct(){
-        include_once('/var/www/html/NOTAS/Models/inscritosModel.php');
+        include_once('/var/www/html/SistemaNotas/Models/inscritosModel.php');
         $this->model = new inscritosModel();
     }
     public function readAll_año($cod_doc){

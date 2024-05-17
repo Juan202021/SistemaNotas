@@ -1,6 +1,6 @@
 <?php
-include_once('/var/www/html/NOTAS/Views/header.php');
-include_once('/var/www/html/NOTAS/Controllers/inscritosController.php');
+include_once('/var/www/html/SistemaNotas/Views/header.php');
+include_once('/var/www/html/SistemaNotas/Controllers/inscritosController.php');
 $insController = new inscritosController();
 $datos = $insController->readAll_est($_GET['cod_doc'], $_GET['año'], $_GET['periodo'], $_GET['cod_cur']);
 ?>
@@ -60,7 +60,7 @@ $datos = $insController->readAll_est($_GET['cod_doc'], $_GET['año'], $_GET['per
 </div>
 
 <?php
-echo $data['cod_pro'];
-echo "<br><br><br>";
-include_once('/var/www/html/NOTAS/Views/footer.php');
+// echo $data['cod_pro'];
+// echo "<br><br><br>";
+include_once('/var/www/html/SistemaNotas/Views/footer.php');
 ?>

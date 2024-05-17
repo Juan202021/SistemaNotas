@@ -1,6 +1,6 @@
 <?php
-include_once('/var/www/html/NOTAS/Views/header.php');
-include_once('/var/www/html/NOTAS/Controllers/calificacionesController.php');
+include_once('/var/www/html/SistemaNotas/Views/header.php');
+include_once('/var/www/html/SistemaNotas/Controllers/calificacionesController.php');
 $notasController = new calificacionesController();
 $datos = $notasController->readAll_notas($_GET['cod_doc'], $_GET['año'],$_GET['periodo'], $_GET['nomb_cur']);
 $porcentajes = $notasController->porcentajes($_GET['cod_doc'], $_GET['año'],$_GET['periodo'], $_GET['nomb_cur']);
@@ -57,5 +57,5 @@ $porcentajes = $notasController->porcentajes($_GET['cod_doc'], $_GET['año'],$_G
 </div>
 
 <?php
-include_once("/var/www/html/NOTAS/Views/footer.php");
+include_once("/var/www/html/SistemaNotas/Views/footer.php");
 ?>

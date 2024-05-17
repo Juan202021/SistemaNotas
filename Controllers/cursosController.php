@@ -2,7 +2,7 @@
 class cursosController {
     private $model;
     public function __construct(){
-        include_once('/var/www/html/NOTAS/Models/cursosModel.php');
+        include_once('/var/www/html/SistemaNotas/Models/cursosModel.php');
         $this->model = new cursosModel();
     }
     public function readAll($cod_doc){

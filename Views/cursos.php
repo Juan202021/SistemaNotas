@@ -1,7 +1,7 @@
 <?php
-include_once('/var/www/html/NOTAS/Views/header.php');
-include_once('/var/www/html/NOTAS/Controllers/inscritosController.php');
-include_once('/var/www/html/NOTAS/Controllers/cursosController.php');
+include_once('/var/www/html/SistemaNotas/Views/header.php');
+include_once('/var/www/html/SistemaNotas/Controllers/inscritosController.php');
+include_once('/var/www/html/SistemaNotas/Controllers/cursosController.php');
 $insController = new inscritosController();
 $curController = new cursosController();
 $periodos = $insController->readAll_año($_GET['cod_doc']);
@@ -42,5 +42,5 @@ $datos = $curController->readAll($_GET['cod_doc']);
 </div>
 
 <?php
-include_once('/var/www/html/NOTAS/Views/footer.php');
+include_once('/var/www/html/SistemaNotas/Views/footer.php');
 ?>

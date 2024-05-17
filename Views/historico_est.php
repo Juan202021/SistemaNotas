@@ -1,6 +1,6 @@
 <?php
-include_once('/var/www/html/NOTAS/Views/header.php');
-include_once('/var/www/html/NOTAS/Controllers/inscritosController.php');
+include_once('/var/www/html/SistemaNotas/Views/header.php');
+include_once('/var/www/html/SistemaNotas/Controllers/inscritosController.php');
 $insController = new inscritosController();
 $datos = $insController->readAll_historico($_GET['cod_doc'],$_GET['cod_cur'],$_GET['año'],$_GET['periodo']);
 ?>
@@ -39,5 +39,5 @@ $datos = $insController->readAll_historico($_GET['cod_doc'],$_GET['cod_cur'],$_G
 </div>
 
 <?php
-include_once('/var/www/html/NOTAS/Views/footer.php');
+include_once('/var/www/html/SistemaNotas/Views/footer.php');
 ?>

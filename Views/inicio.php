@@ -1,6 +1,6 @@
 <?php
-include_once('/var/www/html/NOTAS/Views/header.php');
-include_once('/var/www/html/NOTAS/Controllers/cursosController.php');
+include_once('/var/www/html/SistemaNotas/Views/header.php');
+include_once('/var/www/html/SistemaNotas/Controllers/cursosController.php');
 $curController = new cursosController();
 $datos = $curController->readAll($_GET['cod_doc']);
 ?>
@@ -33,5 +33,5 @@ $datos = $curController->readAll($_GET['cod_doc']);
     </div>
 </div>
 <?php
-include_once('/var/www/html/NOTAS/Views/footer.php');
+include_once('/var/www/html/SistemaNotas/Views/footer.php');
 ?>

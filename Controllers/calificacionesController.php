@@ -2,7 +2,7 @@
 class calificacionesController {
     private $model;
     public function __construct(){
-        include_once('/var/www/html/NOTAS/Models/calificacionesModel.php');
+        include_once('/var/www/html/SistemaNotas/Models/calificacionesModel.php');
         $this->model = new calificacionesModel();
     }
     public function readAll_notas($cod_doc,$año,$periodo,$cod_cur){

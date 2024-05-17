@@ -1,7 +1,7 @@
 <?php
-include_once('/var/www/html/NOTAS/Views/header.php');
-include_once('/var/www/html/NOTAS/Controllers/calificacionesController.php');
-include_once('/var/www/html/NOTAS/Controllers/inscritosController.php');
+include_once('/var/www/html/SistemaNotas/Views/header.php');
+include_once('/var/www/html/SistemaNotas/Controllers/calificacionesController.php');
+include_once('/var/www/html/SistemaNotas/Controllers/inscritosController.php');
 $notasController = new calificacionesController();
 $insController = new inscritosController();
 
@@ -81,5 +81,5 @@ $notas_corte3 = $notasController->notas_corte($_GET['cod_doc'], $_GET['año'], $
 
 <?php
 echo "<br><br><br>";
-include_once("/var/www/html/NOTAS/Views/footer.php");
+include_once("/var/www/html/SistemaNotas/Views/footer.php");
 ?>
