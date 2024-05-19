@@ -1,19 +1,14 @@
 <?php
 
-    // Primero, obtén la ruta al directorio actual
-    $directorio_actual = dirname(__FILE__);
-
-    // Luego, sube un nivel para acceder a la carpeta modelo
-    $ruta_modelo = dirname($directorio_actual) . "/modelo/inicio.php";
-    $ruta_conexion = dirname($directorio_actual) . "/modelo/conexion_bd.php";
-    require_once $ruta_modelo;
-    require_once $ruta_conexion;
+    require_once '../config/conexion.php';
+    require_once '../Models/logIn.php';
 
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
 
-    $inicioM = new inicioM($pdo);
+    $pdo = new ConexionBD();
+    $inicioM = new inicioM($pdo->getConnection());
     $guardar = true;
 
     // Verificar si se envió el formulario de inicio de registro
@@ -64,7 +59,7 @@
         }
 
         if(!$guardar){
-            header("Location: ../../index.php");
+            header("Location: ../Views/logIn.php");
             exit();
         }
 
@@ -87,12 +82,12 @@
         if($consulta){
             //si la ejecuta se realizo con exito lo mando a la pagina de incio y le notifico que se guardo el usuario
             $_SESSION['guardado'] = "Usuario guardado exitosamente";
-            header("Location: ../../index.php");
+            header("Location: ../Views/logIn.php");
             exit();
         }
         else{
             $_SESSION['guardado'] = "Usuario no guardado";
-            header("Location: ../../index.php");
+            header("Location: ../Views/logIn.php");
             exit();
         }
     }
@@ -122,12 +117,12 @@
                 /*$consulta = $pdo -> query("SELECT")
                 $_SESSION['usuario'] = $usuario;/*/
                 //los mando a el inicio de la web
-                header("Location: ../../paginas/pagina.php");
+                header("Location: ../index.php");
                 exit();
             }else{
                 //si no es igual le digo al usuario que no es la contraseña
                 $_SESSION['contrasena_incorrecta'] = "contraseña incorrecta";
-                header("Location: ../../index.php");
+                header("Location: ../Views/logIn.php");
             
                 exit();
             }
@@ -135,7 +130,7 @@
         else{
             //le digo al usuario que el usuario no existe
             $_SESSION['usuario_incorrecto'] = "usuario invalido";
-            header("Location: ../../index.php");
+            header("Location: ../Views/logIn.php");
             exit();
         }
     }

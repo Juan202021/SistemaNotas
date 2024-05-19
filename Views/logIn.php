@@ -1,4 +1,4 @@
-<?php require_once 'php/controlador/inicio.php';
+<?php require_once '../Controllers/logIn.php';
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/inicio_sesion.css">
+    <link rel="stylesheet" href="../Assets/css/logIn.css">
 </head>
 <body>
     
@@ -39,7 +39,7 @@
             <div class="caja_login-log">
                 
                 <!--formulario de inicio de sesion-->
-                <form id="iniciar" action="php/controlador/inicio.php" method="POST" class="form_login">
+                <form id="iniciar" action="../Controllers/logIn.php" method="POST" class="form_login">
                     <h2>Iniciar sesión</h2>
                     <?php if(isset($_SESSION['guardado'])) { ?>
                         <p class="error centrar"> <?=$_SESSION['guardado']?> </p>
@@ -69,7 +69,7 @@
                 </form>
 
                 <!--formulario de registro-->
-                <form id="registro" action="php/controlador/inicio.php" method="POST" class="form_log">
+                <form id="registro" action="../Controllers/logIn.php" method="POST" class="form_log">
                     <h2>Registrarse</h2>
                     <!--Nombre De Usuario-->
                     <input type="text"  name="nombres_usuario" placeholder="Nombres" required>
@@ -129,7 +129,7 @@
         </div>
     </main>
 
-    <script src="assets/js/inicio_sesion.js"></script>
+    <script src="../Assets/js/logIn.js"></script>
     
 </body>
 </html>

@@ -1,12 +1,16 @@
 <?php 
     /*trae la conexion con la base de datos para poder sacar lo valores necesarios */
-    require '../modelo/conexion_bd.php';
+    require_once '../Controllers/logIn.php';
+    require_once '../config/conexion.php';
+
+    $pdo = new ConexionBD();
+    $inicioM = new inicioM($pdo->getConnection());
 
     //trae el codifo de la facultad elegida
     $facultadSeleccionada = $_GET["facultad"];
     //con le codigo obtenido consultamos en la base de datos para traer las carreras asociadas a la facultad
-    
-    $consulta = $pdo->query("SELECT cod_pro, nomb_pro FROM programa WHERE cod_fac = " . $facultadSeleccionada);
+
+    $consulta = $inicioM->getCarrera($facultadSeleccionada);
     //validamos que la consulta me devolvio algo para asi mostrarlo por pantalla
     if ($consulta->rowCount() > 0) {
         //sacamos fila por fila de lo que me devolvio la consulta
