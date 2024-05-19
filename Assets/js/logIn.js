@@ -89,7 +89,7 @@ function listadoCarreras(){
         }
     };
 
-    solicitudCarreras.open("GET", "php/controlador/opcion_multiple.php?facultad=" + facultadSeleccionada, true);
+    solicitudCarreras.open("GET", "../Controllers/opcion_multiple.php?facultad=" + facultadSeleccionada, true);
     solicitudCarreras.send();
 }
 
