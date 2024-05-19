@@ -75,7 +75,6 @@
         }
 
         public function getCarrera($facultad){
-            
             return $this->pdo->query("SELECT cod_pro, nomb_pro FROM programa WHERE cod_fac = $facultad ");
         }
 
@@ -88,6 +87,18 @@
             }
 
             return $facultades;
+        }
+
+        public function getId($usuario, $tipoUser){
+            if ($tipoUser == "estudiante"){
+                $consulta = $this->pdo->query("SELECT cod_est FROM estudiante WHERE cod_user = $usuario");
+                $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+                return $resultado['cod_est'];
+            }else{
+                $consulta = $this->pdo->query("SELECT cod_doc FROM docente WHERE cod_user = $usuario");
+                $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+                return $resultado['cod_doc'];
+            }
         }
     }
 ?>
