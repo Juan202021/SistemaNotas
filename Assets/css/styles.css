@@ -461,3 +461,31 @@ footer {
     line-height: 20px;
     background-color: #cd2122;
 }
+
+
+/*Estilos del reporte*/
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+#graficos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#graficoPastel{
+    height: 65% !important;
+    width: 65% !important;
+}
+
+canvas {
+    margin: 20px;
+}
+
