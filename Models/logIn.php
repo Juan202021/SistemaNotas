@@ -57,17 +57,17 @@
         }
 
         public function validarCorreo($correo) {
-            $statement = $this->pdo->prepare("SELECT correo FROM usuario WHERE correo = :correo");
-            $statement->bindParam(':correo', $correo);
-            $statement->execute();
-            return $statement->rowCount() > 0;
+            $consulta = $this->pdo->prepare("SELECT correo FROM usuario WHERE correo = :correo");
+            $consulta->bindParam(':correo', $correo);
+            $consulta->execute();
+            return $consulta->rowCount() > 0;
         }
 
         public function validarUsuario($usuario) {
-            $statement = $this->pdo->prepare("SELECT nomb_user FROM usuario WHERE nomb_user = :usuario");
-            $statement->bindParam(':usuario', $usuario);
-            $statement->execute();
-            return $statement->rowCount() > 0;
+            $consulta = $this->pdo->prepare("SELECT nomb_user FROM usuario WHERE nomb_user = :usuario");
+            $consulta->bindParam(':usuario', $usuario);
+            $consulta->execute();
+            return $consulta->rowCount() > 0;
         }
 
         public function getUltimoId(){

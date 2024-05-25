@@ -29,10 +29,6 @@
 
         $contr_user = $contr_user . $nomb_usuario;
 
-        //Poner en mayuscula la primera letra de cada palabra
-        $nombres = ucwords(strtolower($nombres));
-        $apellidos = ucwords(strtolower($apellidos));
-
         //encripto la contraseña para guardarla en la base de datos
         $contr_user = hash('sha512', $contr_user);
                     
