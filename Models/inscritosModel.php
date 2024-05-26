@@ -39,7 +39,7 @@ class inscritosModel
         $statement = $this->conn->prepare("SELECT e.cod_est, e.apell_est, e.nomb_est, p.nomb_pro, c.nomb_cur FROM inscritos i 
         JOIN curso c ON c.cod_cur=i.cod_cur JOIN estudiante e ON e.cod_est=i.cod_est 
         JOIN docente d ON d.cod_doc=c.cod_doc JOIN programa p ON p.cod_pro=e.cod_pro WHERE c.cod_cur=$cod_cur AND d.cod_doc=$cod_doc 
-        AND i.año=$año AND i.periodo=$periodo");
+        AND i.año=$año AND i.periodo=$periodo ORDER BY e.apell_est");
         return ($statement->execute())? $statement->fetchAll():false;
     }
     function readAll_est_no_ins($cod_doc,$año,$periodo,$cod_cur)
@@ -48,7 +48,7 @@ class inscritosModel
         JOIN programa p ON p.cod_pro=e.cod_pro WHERE e.cod_est <> ALL (SELECT e.cod_est FROM inscritos i 
         JOIN curso c ON c.cod_cur=i.cod_cur JOIN estudiante e ON e.cod_est=i.cod_est 
         JOIN docente d ON d.cod_doc=c.cod_doc JOIN programa p ON p.cod_pro=e.cod_pro 
-        WHERE c.cod_cur=$cod_cur AND d.cod_doc=$cod_doc AND i.año=$año AND i.periodo=$periodo)");
+        WHERE c.cod_cur=$cod_cur AND d.cod_doc=$cod_doc AND i.año=$año AND i.periodo=$periodo)  ORDER BY e.apell_est");
         return ($statement->execute())? $statement->fetchAll():false;
     }
     function create($año,$periodo,$cod_cur,$cod_est)

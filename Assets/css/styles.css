@@ -78,6 +78,7 @@ body {
 }
 
 
+
 /*Estilos para el contenido y contenedores*/
 .contenido {
     display: block;
@@ -235,7 +236,6 @@ a.button {
     display: block;
     /* Hace que el enlace sea un bloque para ocupar todo el ancho */
     width: 98%;
-    /* Ocupa todo el ancho del contenedor, es decir, la celda de la tabla */
     height: 100%;
     /* Ocupa todo el alto del contenedor si lo deseas */
     padding: 8px;
@@ -448,6 +448,21 @@ a.delete.button:active {
 
 a.delete.button:hover .tooltip {
     opacity: 1;
+}
+
+/* Menu desplegable */
+.menu-desplegable {
+    justify-content: left;
+    padding: 0;
+}
+
+.menu-desplegable li{
+    list-style: none;
+}
+
+.icon-arrow {
+    justify-content: right;
+    transform: rotate(90deg);
 }
 
 /* Estilos para el pie de página */

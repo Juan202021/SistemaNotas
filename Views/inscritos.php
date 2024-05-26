@@ -9,11 +9,17 @@ $datos = $insController->readAll_est($_GET['cod_doc'], $_GET['año'], $_GET['per
     <div class="contenido-izq">
         <div>
             <div class="menu-izq">
-                <h1 class="sub-title"><?= $datos[0]['nomb_cur']. '<br>' .$_GET['año'].' - '.$_GET['periodo'] ?></h1>
-                <a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons selected'>Inscritos</a>
-                <a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $datos[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a>
-                <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Calificaciones</a>
-                <a href="#" class='menu-izq-buttons'>Estadísticas del curso</a>
+                <h1 class="sub-title"><?= $datos[0]['nomb_cur'] . '<br>' . $_GET['año'] . ' - ' . $_GET['periodo'] ?></h1>
+                <ul class="menu-desplegable">
+                    <li><a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons selected'>Inscritos</a></li>
+                    <li><a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $datos[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a></li>
+                    <li>
+                        <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Calificaciones<?php echo "" ?><div class="icon-arrow"><img src="../Assets/imagenes/bx-chevron-right.svg" alt=""></div></a>
+                        
+                    </li>
+                    <li><a href="#" class='menu-izq-buttons'>Estadísticas del curso</a></li>
+                </ul>
+
             </div>
         </div>
     </div>
@@ -34,7 +40,7 @@ $datos = $insController->readAll_est($_GET['cod_doc'], $_GET['año'], $_GET['per
                             <tr>
                                 <td><?= $data['apell_est'] . " " . $data['nomb_est'] ?></td>
                                 <td class="td-cent"><?= $data['nomb_pro'] ?></td>
-                                <td  class="td-der">
+                                <td class="td-der">
                                     <a href="inscritos_inter.php?cod_est=<?= $data['cod_est'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_doc=<?= $_GET['cod_doc'] ?>" class="delete button">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 50 59" class="bin">
                                             <path fill="#B5BAC1" d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"></path>
