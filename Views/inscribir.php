@@ -4,6 +4,9 @@ include_once('/var/www/html/SistemaNotas/Controllers/inscritosController.php');
 $insController = new inscritosController();
 $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_GET['periodo'], $_GET['cod_cur']);
 ?>
+<header>
+<script src="../Assets/js/buscador.js"></script>
+</head>
 
 <div class="contenido_flex">
     <div class="contenido-izq">

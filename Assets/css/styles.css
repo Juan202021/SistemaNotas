@@ -261,6 +261,22 @@ a.button {
     text-decoration: none;
 }
 
+a.corte {
+    margin: 0px 0px;
+    display: block;
+    /* Hace que el enlace sea un bloque para ocupar todo el ancho */
+    width: 98%;
+    height: 100%;
+    /* Ocupa todo el alto del contenedor si lo deseas */
+    padding: 8px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+a.corte:hover {
+    color: rgb(0, 0, 0);
+    background-color: #ffffff00;
+}
+
 a.button-big {
     margin: 25px;
     display: block;

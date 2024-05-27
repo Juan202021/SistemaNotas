@@ -11,7 +11,6 @@ $notas_corte1 = $notasController->notas_corte($_GET['cod_doc'], $_GET['año'], $
 $notas_corte2 = $notasController->notas_corte($_GET['cod_doc'], $_GET['año'], $_GET['periodo'], $_GET['cod_cur'], 2);
 $notas_corte3 = $notasController->notas_corte($_GET['cod_doc'], $_GET['año'], $_GET['periodo'], $_GET['cod_cur'], 3);
 // $notas = $notasController->readAll_notas($_GET['cod_doc'], $_GET['año'], $_GET['periodo'], $_GET['cod_cur']);
-
 ?>
 
 <div class="contenido_flex">
@@ -37,9 +36,21 @@ $notas_corte3 = $notasController->notas_corte($_GET['cod_doc'], $_GET['año'], $
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th>Corte 1</th>
-                            <th>Corte 2</th>
-                            <th>Corte 3</th>
+                            <th>
+                                <a class="corte" href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur']?>&corte=1&nomb_cur=<?= $est[0]['nomb_cur'] ?>">
+                                    Corte 1 
+                                </a>
+                            </th>
+                            <th>
+                                <a class="corte" href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur']?>&corte=2&nomb_cur=<?= $est[0]['nomb_cur'] ?>">
+                                    Corte 2
+                                </a>
+                            </th>
+                            <th>
+                                <a class="corte" href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur']?>&corte=3&nomb_cur=<?= $est[0]['nomb_cur'] ?>">
+                                    Corte 3
+                                </a>
+                            </th>
                             <th>Definitiva</th>
                         </tr>
                     </thead>
