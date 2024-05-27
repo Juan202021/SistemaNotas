@@ -18,15 +18,15 @@ $notas_corte3 = $notasController->notas_corte($_GET['cod_doc'], $_GET['año'], $
     <div class="contenido-izq">
         <div>
             <div class="menu-izq">
-                <h1 class="sub-title"><?= $est[0]['nomb_cur']. '<br>' .$_GET['año'].' - '.$_GET['periodo'] ?></h1>
+                <h1 class="sub-title2"><?= $est[0]['nomb_cur']. '<br>' .$_GET['año'].' - '.$_GET['periodo'] ?></h1>
                 <ul class="menu-desplegable">
                     <li><a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Inscritos</a></li>
                     <li><a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $est[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a></li>
                     <li>
-                        <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons selected'>Calificaciones<img src="../Assets/imagenes/arrow_white_l.png" alt=""></a>
+                        <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Calificaciones<img src="../Assets/imagenes/bx-chevron-left.svg" alt=""></a>
                         
-                        <ul>
-                            <li><a href="porcentajes.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Porcentajes</a></li>
+                        <ul class="style-desplegable">
+                            <li><a href="porcentajes.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons selected'>Ingresar Notas</a></li>
                         </ul>
                     </li>
                     
