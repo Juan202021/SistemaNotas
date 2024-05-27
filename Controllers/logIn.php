@@ -29,10 +29,6 @@
 
         $contr_user = $contr_user . $nomb_usuario;
 
-        //Poner en mayuscula la primera letra de cada palabra
-        $nombres = ucwords(strtolower($nombres));
-        $apellidos = ucwords(strtolower($apellidos));
-
         //encripto la contraseña para guardarla en la base de datos
         $contr_user = hash('sha512', $contr_user);
                     
@@ -114,10 +110,10 @@
             //valido si las contraseñas son iguales
             if ($contrasena == $consulta["contr_user"]){
                 //guardo el usuario que se logeo para poder utilizarlo mas adelante
-                /*$consulta = $pdo -> query("SELECT")
-                $_SESSION['usuario'] = $usuario;/*/
+                $_SESSION['id'] = $inicioM->getId($consulta["cod_user"], $consulta["tipo_user"]);
+                echo '<h2>' . $_SESSION['id'] . '</h2>';
                 //los mando a el inicio de la web
-                header("Location: ../index.php");
+                header("Location: ../Views/inicio.php");
                 exit();
             }else{
                 //si no es igual le digo al usuario que no es la contraseña

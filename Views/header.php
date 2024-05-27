@@ -2,6 +2,7 @@
     session_id(1);
     session_start(); 
     $cod_doc = session_id();
+    //$cod_doc = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="es">

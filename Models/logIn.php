@@ -57,17 +57,17 @@
         }
 
         public function validarCorreo($correo) {
-            $statement = $this->pdo->prepare("SELECT correo FROM usuario WHERE correo = :correo");
-            $statement->bindParam(':correo', $correo);
-            $statement->execute();
-            return $statement->rowCount() > 0;
+            $consulta = $this->pdo->prepare("SELECT correo FROM usuario WHERE correo = :correo");
+            $consulta->bindParam(':correo', $correo);
+            $consulta->execute();
+            return $consulta->rowCount() > 0;
         }
 
         public function validarUsuario($usuario) {
-            $statement = $this->pdo->prepare("SELECT nomb_user FROM usuario WHERE nomb_user = :usuario");
-            $statement->bindParam(':usuario', $usuario);
-            $statement->execute();
-            return $statement->rowCount() > 0;
+            $consulta = $this->pdo->prepare("SELECT nomb_user FROM usuario WHERE nomb_user = :usuario");
+            $consulta->bindParam(':usuario', $usuario);
+            $consulta->execute();
+            return $consulta->rowCount() > 0;
         }
 
         public function getUltimoId(){
@@ -75,7 +75,6 @@
         }
 
         public function getCarrera($facultad){
-            
             return $this->pdo->query("SELECT cod_pro, nomb_pro FROM programa WHERE cod_fac = $facultad ");
         }
 
@@ -88,6 +87,18 @@
             }
 
             return $facultades;
+        }
+
+        public function getId($usuario, $tipoUser){
+            if ($tipoUser == "estudiante"){
+                $consulta = $this->pdo->query("SELECT cod_est FROM estudiante WHERE cod_user = $usuario");
+                $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+                return $resultado['cod_est'];
+            }else{
+                $consulta = $this->pdo->query("SELECT cod_doc FROM docente WHERE cod_user = $usuario");
+                $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+                return $resultado['cod_doc'];
+            }
         }
     }
 ?>
