@@ -12,4 +12,11 @@ class cursosController {
             return $e->getMessage();
         }
     }
+    public function find($cod_doc, $nomb_cur){
+        try{
+            return ($this->model->find($cod_doc,$nomb_cur))? $this->model->find($cod_doc,$nomb_cur):false;
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
 }

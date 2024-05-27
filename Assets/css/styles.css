@@ -77,6 +77,14 @@ body {
     border-radius: 10px;
 }
 
+p {
+    font-size: 30px; /* Tamaño del texto en píxeles */
+    text-align: justify;
+}
+
+.p_bienvenida {
+    
+}
 
 /*Estilos para el contenido y contenedores*/
 .contenido {
@@ -102,7 +110,8 @@ body {
     margin: 10px 10px;
     min-height: 700px;
     width: 1500px;
-    border-radius: 10px;
+    border: 2px solid rgb(188, 188, 188);
+    border-radius: 30px;
 }
 
 /* .contenido-central-doble {
@@ -133,7 +142,8 @@ body {
     height: 700px;
     width: 360px;
     display: inline;
-    border-radius: 10px;
+    border: 2px solid rgb(188, 188, 188);
+    border-radius: 30px;
 }
 
 .contenido-der {
@@ -160,10 +170,16 @@ body {
 }
 
 .sub-title {
+    font-size: 38px;
+    margin: 40px 0;
+    text-transform: uppercase;
+}
+.sub-title2 {
     font-size: 28px;
     margin: 40px 0;
     text-transform: uppercase;
 }
+
 
 .contenido-texto {
     margin: 100px 200px;
@@ -174,7 +190,9 @@ body {
 .tbl {
     display: flex;
     flex-direction: column;
-    margin: 50px 200px;
+    margin: 0px 40px;
+    margin-bottom: 30px;
+    margin-top: 0;
     width: auto;
     justify-content: center;
     /* Centrar horizontalmente */
@@ -190,7 +208,7 @@ th,td {
 }
 
 th {
-    padding: 8px;
+    padding: 15px;
     font-size: 18pt;
     border-top: 1px solid #ddd;
     text-align: center;
@@ -227,6 +245,7 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
     background-color: #fff;
     /* White for even rows */
+
 }
 
 /* Estilo para los selectores dentro de las tablas */
@@ -235,7 +254,6 @@ a.button {
     display: block;
     /* Hace que el enlace sea un bloque para ocupar todo el ancho */
     width: 98%;
-    /* Ocupa todo el ancho del contenedor, es decir, la celda de la tabla */
     height: 100%;
     /* Ocupa todo el alto del contenedor si lo deseas */
     padding: 8px;
@@ -448,6 +466,36 @@ a.delete.button:active {
 
 a.delete.button:hover .tooltip {
     opacity: 1;
+}
+
+/* Menu desplegable */
+.menu-desplegable {
+    justify-content: left;
+    padding: 0;
+    list-style: none;
+}
+/* 
+.menu-desplegable{
+    list-style: none;
+} */
+
+.style-desplegable li{
+    list-style-type: square;
+}
+
+.icon-arrow {
+    justify-content: right;
+    transform: rotate(90deg);
+}
+
+.border-content{
+    margin-top: 0;
+    margin-bottom: 100pt;
+    margin-left: 100pt;
+    margin-right: 100pt;
+    padding: 0;
+    border-radius: 20px;
+    border: 1px solid rgb(188, 188, 188);
 }
 
 /* Estilos para el pie de página */
