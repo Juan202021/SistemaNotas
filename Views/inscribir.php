@@ -64,6 +64,7 @@ $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_G
                             <th>Programa</th>
                             <th></th>
                         </tr>
+                    <?php endif ?>
                     </thead>
                     <tbody id="est">
                         <?php if ($datos) : ?>
@@ -89,7 +90,7 @@ $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_G
                                 <td colspan="3">No hay estudiantes para inscribir</td>
                             </tr>
                         <?php endif ?>
-
+                    
                     </tbody>
                 </table>
             </div>
