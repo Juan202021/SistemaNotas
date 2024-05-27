@@ -488,4 +488,12 @@ h1 {
 canvas {
     margin: 20px;
 }
+/* pacto_aula */
 
+.edit-input {
+    display: none;
+    width: 100%;
+    font-size: 16pt;
+    background: #ffffff;
+    outline: none;
+}

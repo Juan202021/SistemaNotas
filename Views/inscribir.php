@@ -13,6 +13,7 @@ $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_G
                 <a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Inscritos</a>
                 <a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons  selected'>Inscribir</a>
                 <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Calificaciones</a>
+                <a href="pacto_aula.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Pacto de aula</a>
                 <a href="reporte.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Estadísticas del curso</a>
             </div>
         </div>
@@ -25,7 +26,7 @@ $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_G
                     <select name="all" id="f1" class="ajuste-1">
                         <option value="All">Todos</option>
                     </select>
-                    <input type="text" name="Buscador" placeholder="Buscar" class="ajuste-2">
+                    <input type="text" name="Buscador" placeholder="Buscar" class="ajuste-2" id="buscarInput">
                 </div>
             </div>
             <table id='miTabla3'>
@@ -36,7 +37,7 @@ $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_G
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="resultadoBusqueda">
                     <?php if ($datos) : ?>
                         <?php foreach ($datos as $data) : ?>
                             <tr>
