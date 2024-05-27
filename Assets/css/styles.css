@@ -77,13 +77,14 @@ body {
     border-radius: 10px;
 }
 
-p {
+.p_text {
     font-size: 30px; /* Tamaño del texto en píxeles */
     text-align: justify;
 }
 
 .p_bienvenida {
-    
+    font-size: 40px; /* Tamaño del texto en píxeles */
+    text-align: center;
 }
 
 /*Estilos para el contenido y contenedores*/
@@ -108,7 +109,7 @@ p {
 .contenido-central {
     background-color: white;
     margin: 10px 10px;
-    min-height: 700px;
+    max-height: 800px;
     width: 1500px;
     border: 2px solid rgb(188, 188, 188);
     border-radius: 30px;
@@ -139,7 +140,7 @@ p {
     background-color: white;
     margin: 10px 10px;
     margin-left: 20px;
-    height: 700px;
+    height: 600px;
     width: 360px;
     display: inline;
     border: 2px solid rgb(188, 188, 188);
@@ -150,7 +151,7 @@ p {
     background-color: white;
     margin: 10px 10px;
     margin-right: 20px;
-    min-height: 700px;
+    min-height: 800px;
     width: 1300px;
     border-radius: 10px;
 }
@@ -187,6 +188,10 @@ p {
 }
 
 /* Estilos para las tablas */
+#miTabla4 {
+    /* max-height: 100px; */
+}
+
 .tbl {
     display: flex;
     flex-direction: column;
@@ -200,7 +205,17 @@ p {
 
 table {
     border-collapse: collapse;
+    max-height: 400pt;
     width: 100%;
+    table-layout: auto;
+
+    overflow: scroll;
+}
+
+table tbody {
+    overflow: scroll;
+
+    overflow-y: auto; /*Agrega un scroll vertical si es necesario*/
 }
 
 th,td {
@@ -320,15 +335,16 @@ a:hover {
 }
 
 .container-filter {
-    height: 90px;
+    height: 55px;
     margin-left: 40px;
 }
 
 .filtro {
-    height: 50px;
+    
+    height: 35px;
     display: flex;
     flex-direction: row;
-    margin: 20px;
+    margin: 0px 100px;
 }
 
 .ajuste-1 {
@@ -509,9 +525,13 @@ a.delete.button:hover .tooltip {
     margin-bottom: 100pt;
     margin-left: 100pt;
     margin-right: 100pt;
+    max-height: 450pt;
+    min-width: 600pt;
     padding: 0;
     border-radius: 20px;
     border: 1px solid rgb(188, 188, 188);
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 /* Estilos para el pie de página */

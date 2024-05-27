@@ -13,8 +13,8 @@ $datos = $curController->readAll($_GET['cod_doc']);
             </center>
         </div>
         <div class="contenido-texto">
-            <p>Bienvenido al sistema de gestión de notas de la Universidad de los Llanos</p>
-            <p>La Universidad de los Llanos, como institución comprometida con el desarrollo regional y nacional, practica y difunde una ética fundada en valores universales como: la verdad, la libertad, la honradez, la justicia, la equidad, la tolerancia y el compromiso con los derechos humanos, los deberes civiles y la prevalencia del bien común sobre el particular.</p>
+            <p class="p_bienvenida">Bienvenido al sistema de gestión de notas de la Universidad de los Llanos</p>
+            <p class="p_text">La Universidad de los Llanos, como institución comprometida con el desarrollo regional y nacional, practica y difunde una ética fundada en valores universales como: la verdad, la libertad, la honradez, la justicia, la equidad, la tolerancia y el compromiso con los derechos humanos, los deberes civiles y la prevalencia del bien común sobre el particular.</p>
         </div>
     </div>
     <br><br>

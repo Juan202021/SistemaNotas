@@ -25,7 +25,6 @@
                 <div id="menu">
                     <a href="inicio.php?cod_doc=<?= $cod_doc ?>">Inicio</a>
                     <a href="cursos.php?cod_doc=<?= $cod_doc ?>">Cursos</a>
-                    <a href="#">Estadísticas</a>
                 </div>
             </div>
         </div>

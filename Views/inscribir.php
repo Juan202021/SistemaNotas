@@ -23,26 +23,26 @@ $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_G
         </div>
     </div>
     <div class="contenido-central">
-
-        <div class="tbl">
-            <center class="sub-title">inscribir al curso</center>
-            <div class="container-filter">
-                <div class="filtro">
-                    <select name="all" id="f1" class="ajuste-1">
-                        <option value="All">Todos</option>
-                    </select>
-                    <input type="text" name="Buscador" placeholder="Buscar" class="ajuste-2" id="buscarInput">
+        <center class="sub-title">inscribir al curso</center>
+        <div class="container-filter">
+                    <div class="filtro">
+                        <input type="text" name="Buscador" placeholder="Buscar" class="ajuste-2" id="buscarInput">
+                    </div>
                 </div>
-            </div>
-            <table id='miTabla3'>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Programa</th>
-                        <th></th>
-                    </tr>
-                </thead>
+        <div class="border-content">
+            <div class="tbl">
+
+                
+                <table id='miTabla3'>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Programa</th>
+                            <th></th>
+                        </tr>
+                    </thead>
                     <tbody id="resultadoBusqueda">
+                       
                         <?php if ($datos) : ?>
                             <?php foreach ($datos as $data) : ?>
                                 <tr>
@@ -66,12 +66,13 @@ $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_G
                                 <td colspan="3">No hay estudiantes para inscribir</td>
                             </tr>
                         <?php endif ?>
-                    
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <?php
