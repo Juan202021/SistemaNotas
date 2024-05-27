@@ -48,4 +48,11 @@ class inscritosController {
         $cod = $this->model->delete($cod_cur,$cod_est,$año,$periodo);
         return header("Location:inscritos.php?cod_doc=$cod_doc&año=$año&periodo=$periodo&cod_cur=$cod_cur");
     }
+    public function find($cod_doc,$año,$periodo,$cod_cur,$nomb_est){
+        try{
+            return ($this->model->find($cod_doc,$año,$periodo,$cod_cur,$nomb_est))? $this->model->find($cod_doc,$año,$periodo,$cod_cur,$nomb_est):false;
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
 }

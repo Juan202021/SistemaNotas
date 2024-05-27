@@ -83,4 +83,13 @@ class inscritosModel
         $statement = $this->conn->prepare("SELECT count(*) FROM inscritos WHERE cod_cur=$cod_cur AND año=$año AND periodo=$periodo");
         return ($statement->execute())? $statement->fetch()['count']:false;
     }
+    function find($cod_doc,$año,$periodo,$cod_cur,$nomb_est){
+        $statement = $this->conn->prepare("SELECT e.apell_est, e.nomb_est, p.nomb_pro, e.cod_est FROM estudiante e 
+        JOIN programa p ON p.cod_pro=e.cod_pro WHERE e.cod_est <> ALL (SELECT e.cod_est FROM inscritos i 
+        JOIN curso c ON c.cod_cur=i.cod_cur JOIN estudiante e ON e.cod_est=i.cod_est 
+        JOIN docente d ON d.cod_doc=c.cod_doc JOIN programa p ON p.cod_pro=e.cod_pro 
+        WHERE c.cod_cur=$cod_cur AND d.cod_doc=$cod_doc AND i.año=$año AND i.periodo=$periodo) 
+        AND e.nomb_est ILIKE '$nomb_est%' OR e.apell_est ILIKE '$nomb_est%' ORDER BY e.apell_est");
+        return ($statement->execute())? $statement->fetchAll():false;
+    }
 }

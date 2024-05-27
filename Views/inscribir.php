@@ -25,7 +25,7 @@ $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_G
                     <select name="all" id="f1" class="ajuste-1">
                         <option value="All">Todos</option>
                     </select>
-                    <input type="text" name="Buscador" placeholder="Buscar" class="ajuste-2">
+                    <input type="text" id="Buscador-est" name="<?= $_GET['cod_doc'] ?>,<?= $_GET['año'] ?>,<?= $_GET['periodo'] ?>,<?= $_GET['cod_cur'] ?>" placeholder="Buscar" class="ajuste-2">
                 </div>
             </div>
             <table id='miTabla3'>
@@ -36,7 +36,7 @@ $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_G
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="est">
                     <?php if ($datos) : ?>
                         <?php foreach ($datos as $data) : ?>
                             <tr>
