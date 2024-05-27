@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOTAS UNIVERSIDAD</title>
     <link rel="stylesheet" href="../Assets/css/styles.css">
-    <script src="../Assets/js/buscador.js"></script>
 </head>
 
 <body>

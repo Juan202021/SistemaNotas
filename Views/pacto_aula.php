@@ -24,6 +24,7 @@ $controlador = new PactoAulaControlador;
                 </div>
             </div>
         </div>
+
         <div class="contenido-central">
             <div class="container">
             <center class="sub-title">Pacto de aula</center>
@@ -48,6 +49,7 @@ $controlador = new PactoAulaControlador;
                     </table>
                 </div>
             </div>
+    
         </div>
     </div>
 </body>

@@ -4,6 +4,9 @@ include_once('/var/www/html/SistemaNotas/Controllers/inscritosController.php');
 $insController = new inscritosController();
 $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_GET['periodo'], $_GET['cod_cur']);
 ?>
+<header>
+<script src="../Assets/js/buscador.js"></script>
+</head>
 
 <div class="contenido_flex">
     <div class="contenido-izq">
@@ -39,33 +42,7 @@ $datos = $insController->readAll_est_no_ins($_GET['cod_doc'], $_GET['año'], $_G
                         </tr>
                     </thead>
                     <tbody id="resultadoBusqueda">
-                        <?php if ($datos) : ?>
-                            <?php foreach ($datos as $data) : ?>
-                                <tr>
-                                    <td><?= $data['apell_est'] . " " . $data['nomb_est'] ?></td>
-                                    <td class="td-cent"><?= $data['nomb_pro'] ?></td>
-                                    <td class="td-der">
-                                        <a href="inscribir_inter.php?cod_est=<?= $data['cod_est'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_doc=<?= $_GET['cod_doc'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class="add button">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                                    <path fill="none" d="M0 0h24v24H0z"></path>
-                                                    <path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path>
-                                                </svg>
-                                                <span class="tooltip">Eliminar</span>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach ?>
-                        <?php else : ?>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Programa</th>
-                                <th></th>
-                            </tr>
-                        <?php endif ?>
-                        </thead>
-                    <tbody id="est">
+                       
                         <?php if ($datos) : ?>
                             <?php foreach ($datos as $data) : ?>
                                 <tr>
