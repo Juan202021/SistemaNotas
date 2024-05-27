@@ -9,7 +9,14 @@
         }
 
         public function estudiantes($texto){
-            return $this->buscadorModelo->estudiantes($texto);
+            $estudiantes = $this->buscadorModelo->estudiantes($texto);
+            $respuesta = [];
+            foreach($estudiantes as $estudiante){
+                $respuesta[] = '<tr>'.
+                                '<td>'. htmlspecialchars($estudiante['apell_est']) . ' ' . htmlspecialchars($estudiante['nomb_est']) . '</td>'.
+                                '<td class="td-cent">'. htmlspecialchars($estudiante['nomb_pro']) . '</td>';
+            }
+            return $respuesta;
         }
 
         public function controlarSolicitud(){

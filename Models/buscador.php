@@ -15,7 +15,8 @@
             $estudiantes = [];
             $consulta = $this->pdo->prepare("SELECT DISTINCT e.nomb_est, e.apell_est, p.nomb_pro FROM estudiante e 
                                             JOIN programa p ON p.cod_pro = e.cod_pro 
-                                            WHERE CONCAT(e.nomb_est, ' ', e.apell_est) ILIKE :texto1 OR p.nomb_pro ILIKE :texto2");
+                                            LEFT JOIN inscritos i ON e.cod_est = i.cod_est
+                                            WHERE i.cod_cur IS NULL AND CONCAT(e.nomb_est, ' ', e.apell_est) ILIKE :texto1 OR p.nomb_pro ILIKE :texto2");
             $consulta->bindValue(':texto1' , "%$texto%");
             $consulta->bindValue(':texto2' , "%$texto%");
             $consulta->execute();
