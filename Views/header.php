@@ -2,6 +2,7 @@
     session_id(1);
     session_start(); 
     $cod_doc = session_id();
+    //$cod_doc = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOTAS UNIVERSIDAD</title>
     <link rel="stylesheet" href="../Assets/css/styles.css">
-    
 </head>
 
 <body>

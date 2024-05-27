@@ -9,16 +9,12 @@ $datos = $insController->readAll_est($_GET['cod_doc'], $_GET['año'], $_GET['per
     <div class="contenido-izq">
         <div>
             <div class="menu-izq">
-                <h1 class="sub-title2"><?= $datos[0]['nomb_cur'] . '<br>' . $_GET['año'] . ' - ' . $_GET['periodo'] ?></h1>
-                <ul class="menu-desplegable">
-                    <li><a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons selected'>Inscritos</a></li>
-                    <li><a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $datos[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a></li>
-                    <li>
-                        <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Calificaciones<?php echo "" ?><div class="icon-arrow"><img src="../Assets/imagenes/bx-chevron-right.svg" alt=""></div></a>
-
-                    </li>
-                    <li><a href="#" class='menu-izq-buttons'>Estadísticas del curso</a></li>
-                </ul>
+                <h1 class="sub-title"><?= $datos[0]['nomb_cur']. '<br>' .$_GET['año'].' - '.$_GET['periodo'] ?></h1>
+                <a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons selected'>Inscritos</a>
+                <a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $datos[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a>
+                <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Calificaciones</a>
+                <a href="pacto_aula.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $datos[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Pacto de aula</a>
+                <a href="reporte.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $datos[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Estadísticas del curso</a>
 
             </div>
         </div>

@@ -1,10 +1,10 @@
 <?php
     class ConexionBD {
         private $host = "localhost";
-        private $db_name = "sistema_notas";
+        private $db_name = "notas";
         private $port = "5432";
         private $username = "postgres";
-        private $password = "passwd";
+        private $password = "dhanielt";
         private $conn;
     
         public function __construct() {
