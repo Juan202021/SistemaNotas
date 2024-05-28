@@ -187,11 +187,6 @@ body {
     font-size: 20pt;
 }
 
-/* Estilos para las tablas */
-#miTabla4 {
-    /* max-height: 100px; */
-}
-
 .tbl {
     display: flex;
     flex-direction: column;
