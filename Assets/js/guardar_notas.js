@@ -1,24 +1,30 @@
-function guardar(){
+function guardar() {
     var notas = [];
     var tabla = document.getElementById('actualizar_nota');
     var filas = tabla.getElementsByTagName('tr');
-    for(var i = 1; i < filas.length; i++){
+    for (var i = 0; i < filas.length; i++) { // Start from i = 0 to include header row if exists
         var notasNuevas = {};
+        var nota = [];
+        var cod_inf = [];
         var celdas = filas[i].getElementsByTagName('td');
-        for(var j = 1; j < celdas.length; j++){
+        
+        if (celdas.length > 0) { // Check if there are cells in the row
             notasNuevas['cod_est'] = celdas[0].getAttribute("cod_est");
-            for(var h = 1; h < celdas.length; h++){
-                console.log(celdas[h].innerText);
-                notasNuevas['cod_inf'+h] = celdas[h].getAttribute("cod_inf");
-                notasNuevas['nota'+h] = celdas[h].innerText;
-                if(!esNumero(celdas[h].innerText)){
-                    return;
-                }
-                
+            
+            for (var j = 1; j < celdas.length; j++) {
+                cod_inf.push(celdas[j].getAttribute("cod_inf"));
+                nota.push(celdas[j].innerText);
+                console.log(j);
+                console.log(cod_inf);
             }
+            notasNuevas['cod_inf'] = cod_inf;
+            notasNuevas['nota'] = nota;
+            notas.push(notasNuevas);
+            
         }
-        notas.push(notasNuevas);
+        
     }
+    enviarDatos(notas);
 }
 function esNumero(valor) {
     return !isNaN(parseFloat(valor)) && isFinite(valor);
@@ -46,6 +52,7 @@ function enviarDatos(datos) {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // La solicitud se completó con éxito
             console.log(xhr.responseText);
+            //window.location.replace("notas.php?" + );
         }
     };
 

@@ -8,42 +8,45 @@ class EditarNotasControlador {
         $this->modelo = new EditarNotasModel;
     }
 
-    public function tabla($curso, $corte){
+    public function tabla($curso, $corte) {
         $notas = $this->modelo->getNotas($curso, $corte);
         $info_notas = $this->modelo->getInfoNotas($curso, $corte);
-
+        $index  = 0;
+    
         $tabla = [];
-        $encabezado = '<thead>' . '<tr>';
-        $encabezado .= '<th>Nombre</th>' ;
-        foreach($info_notas as $info){
-            $encabezado .= '<th>'. $info['detalle'] . '</th>';
+        $encabezado = '<thead><tr>';
+        $encabezado .= '<th>Nombre</th>';
+        foreach($info_notas as $info) {
+            $encabezado .= '<th cod_inf="' . $info['cod_inf'] . '">' . $info['detalle'] . '</th>';
         }
-        
-        $encabezado .='<th style="border: none"> <a href="#" class="delete button" onclick="guardar(); return true;">' .
-        '<span class="material-symbols-outlined">' .
-            'check' .
-        '</span>' .
-        '<span class="tooltip">Guradar</span>' .
-        '</a></th>';
-
-        $encabezado .= '</thead>' . '</tr>';
-
+    
+        $encabezado .= '<th style="border: none"> <a href="#" class="delete button" onclick="guardar(); return true;">' .
+                    '<span class="material-symbols-outlined">check</span>' .
+                    '<span class="tooltip">Guardar</span>' .
+                    '</a></th>';
+        $encabezado .= '</tr></thead>';
         array_push($tabla, $encabezado);
-
+    
         $cuerpo = '<tbody>';
-        for($i = 0; $i < count($notas); $i++){
+    
+        foreach ($notas as $nota) {
             $cuerpo .= '<tr>';
-            $cuerpo .= '<td style="text-align:center" contenteditable="false" cod_est="'.$notas[$i]['cod_est'].'">'. $notas[$i]['apell_est'] . ' ' . $notas[$i]['nomb_est'] .'</td>';
-            for($j = 0; $j < count($info_notas); $j++){
-                $cuerpo .= '<td style="text-align:center" contenteditable="true" cod_info="'.$notas[$j]['cod_inf'].'">'. $notas[$i]['nota'] . '</td>';
-                $i++;
+            $cuerpo .= '<td cod_est="' . $nota['cod_est'] . '">' . $nota['apell_est'] . ' ' . $nota['nomb_est'] . '</td>';
+    
+            for ($i = 0; $i < count($nota['nota']); $i++) {
+                if ($nota['cod_inf'][$i] == $info_notas[$i]['cod_inf']) {
+                    $cuerpo .= '<td class="td-cent" contenteditable="true" cod_inf="' . $nota['cod_inf'][$i] . '">' . $nota['nota'][$i] . '</td>';
+                }
             }
-            $cuerpo .= '<tr>';
+    
+            $cuerpo .= '</tr>';
         }
+        $cuerpo .= '</tbody>';
         array_push($tabla, $cuerpo);
-
+    
         return $tabla;
     }
+    
 
     public function manejoSolicitud(){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -66,5 +69,8 @@ class EditarNotasControlador {
     }
     
 }
+
+$controlador = new EditarNotasControlador;
+$controlador -> manejoSolicitud();
 
 ?>
