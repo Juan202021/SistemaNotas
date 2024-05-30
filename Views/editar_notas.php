@@ -36,6 +36,7 @@ $editarNotas = new EditarNotasControlador();
         </div>
     </div>
 </div>
+</div>
 
 <?php
 echo "<br><br><br>";
