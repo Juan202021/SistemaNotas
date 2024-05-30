@@ -8,27 +8,26 @@ $periodos = $insController->readAll_año($_GET['cod_doc']);
 $datos = $curController->readAll($_GET['cod_doc']);
 ?>
 
+<head>
+    <script src="../Assets/js/cursos.js"></script>
+</head>
+
 <div class="contenido">
     <div class="contenido-unico">
         <div class="list-container">
             <center class="sub-title">cursos</center>
             <div class="container-filter">
                 <div class="filtro">
-                    <form action="" method="post" autocomplete="off" id="form-search">
-                        <select name="all" id="f1" class="ajuste-1">
-                            <option value="All">Todos</option>
-                        </select>
-                        <input type="text" id="nomb_cur" name="" placeholder="Buscar" class="ajuste-2">
-                        <select name="select-año" id="f2" class="ajuste-3">
-                            <option value="">Periodo</option>
-                            <?php if ($periodos) : ?>
-                                <?php foreach ($periodos as $periodo) : ?>
-                                    <option value=""><?= $periodo['año'] . '  -  ' . $periodo['periodo'] ?></option>
-                                <?php endforeach ?>
-                            <?php endif ?>
-                        </select>
-                    </form>
-
+                    
+                    <input type="text" id="nomb_cur" name="" placeholder="Buscar" class="ajuste-2">
+                    <select name="select-año" id="f2" class="ajuste-3">
+                        <option value="" disabled selected>Periodo</option>
+                        <?php if ($periodos) : ?>
+                            <?php foreach ($periodos as $periodo) : ?>
+                                <option value="<?= $periodo['año'].'-' .$periodo['periodo'] ?>"><?= $periodo['año'] . '  -  ' . $periodo['periodo'] ?></option>
+                            <?php endforeach ?>
+                        <?php endif ?>
+                    </select>
                 </div>
             </div>
             <div class="border-content">
