@@ -11,20 +11,35 @@
 
         public function getInfoNotas($cod_cur){
             $detalle = [];
+            $porcentaje = [];
             $consulta = $this->pdo->prepare("SELECT DISTINCT i.* FROM info_nota i
-                                        JOIN calificacion c ON c.cod_inf = i.cod_inf WHERE cod_cur = :cod_cur");
+                                        JOIN calificacion c ON c.cod_inf = i.cod_inf WHERE cod_cur = :cod_cur
+                                        ORDER BY i.corte");
             $consulta->bindParam(':cod_cur', $cod_cur);         
-            $exito = $consulta->execute();
-            //echo $exito;
+            $consulta->execute();
+
             if ($consulta->rowCount() > 0){
                 while ($resultado = $consulta->fetch(PDO::FETCH_ASSOC)){
-                    $detalle[] = [
-                        'cod_inf' => $resultado['cod_inf'],
-                        'detalle' => $resultado['detalle'],
-                        'porcentaje' => $resultado['porcentaje'],
-                        'corte' => $resultado['corte']
-                    ];
+
+                    if(isset($detalle[$resultado['corte']-1])){
+                        $detalle[$resultado['corte']-1]['cod_inf'][] = $resultado['cod_inf'];
+                        $detalle[$resultado['corte']-1]['detalle'][] = $resultado['detalle'];
+                        $detalle[$resultado['corte']-1]['porcentaje'][] = $resultado['porcentaje'];
+                        $porcentaje[$resultado['corte']-1] += $resultado['porcentaje'] * 100; 
+                    }
+                    else{
+                        $detalle[$resultado['corte']-1] = [
+                            'cod_inf' => [$resultado['cod_inf']],
+                            'detalle' => [$resultado['detalle']],
+                            'porcentaje' => [$resultado['porcentaje']],
+                            'porcentajeTotal' => 0
+                        ];
+                        $porcentaje[$resultado['corte']-1] = $resultado['porcentaje'] * 100; 
+                    }
                 }
+            }
+            foreach($porcentaje as $index => $porCorte){
+                $detalle[$index]['porcentajeTotal'] = $porCorte; 
             }
             return $detalle;
         }
