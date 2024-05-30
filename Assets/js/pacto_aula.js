@@ -25,7 +25,9 @@ function confirmarBorrar(boton){
 }
 
 function borrarDefinitivo(celda){
-    abrirModal(borrarFila, "Esta seguro de que quiere borrar los datos de esta fila", celda);
+    if(borrar){
+        abrirModal(borrarFila, "Esta seguro de que quiere borrar los datos de esta fila", celda);
+    }
 }
 
 function confirmarGuardar(event){

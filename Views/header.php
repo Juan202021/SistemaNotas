@@ -30,12 +30,17 @@
             </div>
         </div>
     </header>
+
     <div id="myModal" class="modal">
         <div class="modal-content"> 
-            <span class="close">&times;</span>
-            <p id = "confirmacion"></p>
-            <button id="confirmBtn">Confirmar</button>
-            <button id="cancelBtn">Cancelar</button>
+            <div class="arriba_alerta">
+                <span class="close">&times;</span>
+            </div>
+            <p id = "confirmacion" class="centro"></p>
+            <div class="abajo_alerta">
+                <button id="confirmBtn" class="button_modal">Confirmar</button>
+                <button id="cancelBtn" class="button_modal">Cancelar</button>
+            </div>
         </div>
     </div>
 </body>

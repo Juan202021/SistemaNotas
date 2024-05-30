@@ -731,16 +731,18 @@ canvas {
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
-    padding: 20px;
+    padding: 0px;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
+    height: 20%;
 }
 
 .close {
-    color: #aaa;
+    color: #ffffff;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    margin: 3.5px 5px;
 }
 
 .close:hover,
@@ -748,4 +750,38 @@ canvas {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.abajo_alerta {
+    background-color: #fefefe;
+    margin: 20px auto;
+    padding: 13px;
+    border-top: 1px solid #888;
+    justify-content: end;
+    display: flex;
+}
+
+.arriba_alerta {
+    background-color: red;
+    height: 25%;
+}
+
+.button_modal {
+    background-color: #d32f2f; /* Color rojo similar al de la alerta */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.button_modal:hover {
+    background-color: #b71c1c; /* Un tono más oscuro de rojo */
+}
+.centro {
+    height: 5%;
+    margin: 30px 15px;
 }
