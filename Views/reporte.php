@@ -9,42 +9,42 @@ include_once('/var/www/html/SistemaNotas/Controllers/reporte.php');
 </header>
 
 <body>
-<div class="contenido_flex">
-    <div class="contenido-izq">
-        <div>
-            <div class="menu-izq">
-                <h1 class="sub-title2"><?= $_GET['nomb_cur']. '<br>' .$_GET['año'].' - '.$_GET['periodo'] ?></h1>
-                <hr>
-                <a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Inscritos</a>
-                <a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a>
-                <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Calificaciones</a>
-                <a href="reporte.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons selected'>Estadísticas del curso</a>
+    <div class="contenido_flex">
+        <div class="contenido-izq">
+            <div>
+                <div class="menu-izq">
+                    <h1 class="sub-title2"><?= $_GET['nomb_cur'] . '<br>' . $_GET['año'] . ' - ' . $_GET['periodo'] ?></h1>
+                    <hr>
+                    <a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Inscritos</a>
+                    <a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a>
+                    <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Calificaciones</a>
+                    <a href="reporte.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons selected'>Estadísticas del curso</a>
+                </div>
+            </div>
+        </div>
+        <div class="contenido-central2">
+            <div class="container">
+                <center class="sub-title">Estadísticas de Notas</center>
+                <select id="corte" onchange="corte()" class="ajuste-1" style="min-width: max-content">
+                    <option value="" disabled>seleccione el corte</option>
+                    <option value="1">corte 1</option>
+                    <option value="2">corte 2</option>
+                    <option value="3">corte 3</option>
+                    <option value="4" selected>Definitivas</option>
+                </select>
+                <select name="infoNotas" id="detalles" onchange="sacarNotas()" class="ajuste-1" style="min-width: max-content">
+                    <option value="" disabled selected>seleccione la nota</option>
+                </select>
+                <div id="graficos">
+                    <!-- Espacio para gráficos -->
+                    <canvas id="histograma" width="350" height="50"></canvas>
+                    <canvas id="graficoBarras" width="350" height="100"></canvas>
+                    <h1>Aprobados y Reprobados</h1>
+                    <canvas id="graficoPastel"></canvas>
+                </div>
             </div>
         </div>
     </div>
-    <div class="contenido-central2">
-        <div class="container">
-            <center class="sub-title">Estadísticas de Notas</center>
-            <select id="corte" onchange="corte()" class="ajuste-1" style="min-width: max-content" >
-                <option value="" disabled>seleccione el corte</option>
-                <option value="1">corte 1</option>
-                <option value="2">corte 2</option>
-                <option value="3">corte 3</option>
-                <option value="4" selected>Definitivas</option>
-            </select>
-            <select name="infoNotas" id="detalles" onchange="sacarNotas()" class="ajuste-1" style="min-width: max-content">
-                <option value="" disabled selected>seleccione la nota</option>
-            </select>
-            <div id="graficos">
-                <!-- Espacio para gráficos -->
-                <canvas id="histograma" width="350" height="50"></canvas>
-                <canvas id="graficoBarras" width="350" height="100"></canvas>
-                <h1>Aprobados y Reprobados</h1>
-                <canvas id="graficoPastel"></canvas>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 </body>

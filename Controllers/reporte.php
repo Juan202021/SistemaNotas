@@ -28,7 +28,7 @@ class ReporteControlador {
             header('Content-Type: application/json');
             echo json_encode($this->getNotas($_GET['cod_inf']));
         }else { 
-            $this->modelo->getDefNotas($_GET['año'],$_GET['$periodo'], $_GET['$cod_doc'], $_GET['$cod_cur'], $_GET['$corte']);
+            $this->modelo->getDefNotas($_GET['año'],$_GET['periodo'], $_GET['cod_doc'], $_GET['cod_cur'], $_GET['corte']);
             header('Content-Type: application/json');
             echo json_encode($this->getNotas($_GET['cod_inf']));
         }
