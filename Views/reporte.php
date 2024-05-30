@@ -37,8 +37,8 @@ include_once('/var/www/html/SistemaNotas/Controllers/reporte.php');
             </select>
             <div id="graficos">
                 <!-- Espacio para gráficos -->
-                <canvas id="histograma" width="250" height="50"></canvas>
-                <canvas id="graficoBarras" width="250" height="100"></canvas>
+                <canvas id="histograma" width="350" height="50"></canvas>
+                <canvas id="graficoBarras" width="350" height="100"></canvas>
                 <h1>Aprobados y Reprobados</h1>
                 <canvas id="graficoPastel"></canvas>
             </div>
