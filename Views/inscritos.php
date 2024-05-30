@@ -10,6 +10,7 @@ $datos = $insController->readAll_est($_GET['cod_doc'], $_GET['año'], $_GET['per
         <div>
             <div class="menu-izq">
                 <h1 class="sub-title2"><?= $datos[0]['nomb_cur']. '<br>' .$_GET['año'].' - '.$_GET['periodo'] ?></h1>
+                <hr>
                 <a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons selected'>Inscritos</a>
                 <a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $datos[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a>
                 <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Calificaciones</a>
@@ -29,6 +30,7 @@ $datos = $insController->readAll_est($_GET['cod_doc'], $_GET['año'], $_GET['per
 
                     <thead>
                         <tr>
+                            <th>Cod.</th>
                             <th>Nombre</th>
                             <th>Programa</th>
                             <th></th>
@@ -38,6 +40,7 @@ $datos = $insController->readAll_est($_GET['cod_doc'], $_GET['año'], $_GET['per
                         <?php if ($datos) : ?>
                             <?php foreach ($datos as $data) : ?>
                                 <tr>
+                                    <td align="center"><?= $data['cod_est'] ?></td>
                                     <td><?= $data['apell_est'] . " " . $data['nomb_est'] ?></td>
                                     <td class="td-cent"><?= $data['nomb_pro'] ?></td>
                                     <td class="td-der">

@@ -103,7 +103,7 @@ body {
     justify-content: space-between;
     /*Distribuye los elementos a lo largo del contenedor con espacio entre ellos */
     padding-top: 100px;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
 }
 
 .contenido-central {
@@ -654,6 +654,17 @@ a.delete.button:hover .tooltip {
     border: 1px solid rgb(188, 188, 188);
     overflow: auto;
     overflow-x: hidden;
+}
+
+/* estilos ul */
+.but{
+    list-style: none;
+    justify-content: left;
+    padding: 0;
+}
+
+.but2 {
+    list-style: square;
 }
 
 /* Estilos para el pie de página */

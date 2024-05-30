@@ -18,39 +18,43 @@ $notas_corte3 = $notasController->notas_corte($_GET['cod_doc'], $_GET['año'], $
         <div>
             <div class="menu-izq">
 
-                <h1 class="sub-title2"><?= $est[0]['nomb_cur']. '<br>' .$_GET['año'].' - '.$_GET['periodo'] ?></h1>
-                <a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Inscritos</a>
-                <a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $est[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a>
-                <a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons selected'>Calificaciones</a>
-                <a href="pacto_aula.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $est[0]['nomb_cur']?>" class='menu-izq-buttons'>Pacto de aula</a>
-                <a href="reporte.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $est[0]['nomb_cur']?>" class='menu-izq-buttons'>Estadísticas del curso</a>
+                <h1 class="sub-title2"><?= $est[0]['nomb_cur'] . '<br>' . $_GET['año'] . ' - ' . $_GET['periodo'] ?></h1>
+                <hr>
+                <ul class="but">
+                    <li><a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Inscritos</a></li>
+                    <li><a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $est[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a></li>
+                    <li><a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons selected'>Calificaciones</a></li>
+                    <ul class="but2">
+                        <li><a href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&corte=1&nomb_cur=<?= $est[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Corte 1</a></li>
+                        <li><a href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&corte=2&nomb_cur=<?= $est[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Corte 2</a></li>
+                        <li><a href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&corte=3&nomb_cur=<?= $est[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Corte 3</a></li>
+                        <li><a href="pacto_aula.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $est[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Pacto de aula</a></li>
+                    </ul>
+                    <li><a href="reporte.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $est[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Estadísticas del curso</a></li>
+                </ul>
+
 
             </div>
         </div>
     </div>
     <div class="contenido-central">
-    <center class="sub-title">calificaciones</center>
+        <center class="sub-title">calificaciones</center>
         <div class="border-content">
             <div class="tbl">
                 <table id='miTabla3'>
-                    
+
                     <thead>
                         <tr>
+                            <th>Cod.</th>
                             <th>Nombre</th>
                             <th>
-                                <a class="corte" href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur']?>&corte=1&nomb_cur=<?= $est[0]['nomb_cur'] ?>">
-                                    Corte 1 
-                                </a>
+                                <a>Corte 1</a>
                             </th>
                             <th>
-                                <a class="corte" href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur']?>&corte=2&nomb_cur=<?= $est[0]['nomb_cur'] ?>">
-                                    Corte 2
-                                </a>
+                                <a>Corte 2</a>
                             </th>
                             <th>
-                                <a class="corte" href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur']?>&corte=3&nomb_cur=<?= $est[0]['nomb_cur'] ?>">
-                                    Corte 3
-                                </a>
+                                <a>Corte 3</a>
                             </th>
                             <th>Definitiva</th>
                         </tr>
@@ -59,7 +63,8 @@ $notas_corte3 = $notasController->notas_corte($_GET['cod_doc'], $_GET['año'], $
                         <?php if ($est) : ?>
                             <?php foreach ($est as $e) : ?>
                                 <tr>
-                                    <td><a href="#" class="button"><?= $e['apell_est'] . " " . $e['nomb_est'] ?></a></td>
+                                    <td align="center"><?= $e['cod_est'] ?></td>
+                                    <td><?= $e['apell_est'] . " " . $e['nomb_est'] ?></td>
                                     <!-- corte 1 -->
                                     <?php if ($notasController->coincide($e['apell_est'], $e['nomb_est'], $notas_corte1)) : ?>
                                         <td style="text-align:center"><?= $notasController->coincide($e['apell_est'], $e['nomb_est'], $notas_corte1) ?></td>
