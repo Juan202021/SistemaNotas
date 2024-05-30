@@ -21,15 +21,17 @@ $datos = $curController->readAll($_GET['cod_doc']);
     <div class="contenido-unico">
         <div class="list-container">
             <center class="sub-title">todos los cursos</center>
-            <ul class="lista">
-                <?php if ($datos) : ?>
-                    <?php foreach ($datos as $data) : ?>
-                        <li>
-                            <a href="historico_est.php?cod_doc=<?= $_GET['cod_doc'] ?>&cod_cur=<?= $data['cod_cur'] ?>&año=<?= $data['año'] ?>&periodo=<?= $data['periodo'] ?>&nomb_cur=<?= $data['nomb_cur'] ?>" class='button-big'><?= $data['nomb_cur'].'<br><br>'.$data['año'].' - '.$data['periodo'] ?></a>
-                        </li>
-                    <?php endforeach ?>
-                <?php endif ?>
-            </ul>
+            <div class="border-content">
+                <ul class="lista">
+                    <?php if ($datos) : ?>
+                        <?php foreach ($datos as $data) : ?>
+                            <li>
+                                <a href="historico_est.php?cod_doc=<?= $_GET['cod_doc'] ?>&cod_cur=<?= $data['cod_cur'] ?>&año=<?= $data['año'] ?>&periodo=<?= $data['periodo'] ?>&nomb_cur=<?= $data['nomb_cur'] ?>" class='button-big'><?= $data['nomb_cur'] . '<br><br>' . $data['año'] . ' - ' . $data['periodo'] ?></a>
+                            </li>
+                        <?php endforeach ?>
+                    <?php endif ?>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
