@@ -37,7 +37,7 @@ $controlador = new PactoAulaControlador;
                                 <th>Actividad</th>
                                 <th>porcentaje</th>
                                 <th>Porcentaje total</th>
-                                <th><a href="#" class="delete button" onclick="confirmarBorrar(); return false;">
+                                <th><a href="#" class="delete button" onclick="confirmarBorrar(this); return false;">
                                                 <span class="material-symbols-outlined">
                                                     delete
                                                 </span>

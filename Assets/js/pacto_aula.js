@@ -20,8 +20,8 @@ function confirmarEditar(event){
     abrirModal(editar,"Esta seguro de editar el pacto de aula", event);
 }
 
-function confirmarBorrar(){
-    abrirModal(activarBorrar, "Estas seguro de que quiere eliminar datos");
+function confirmarBorrar(boton){
+    abrirModal(activarBorrar, "Estas seguro de que quiere eliminar datos", boton);
 }
 
 function borrarDefinitivo(celda){
@@ -226,7 +226,7 @@ function guardar(event){
     }
     enviarDatos(inf_nota, "guardar");
     var botones = fila.querySelector(".botones");
-    botones.innerHTML = '<a href="#" class="edit button" onclick="editar(event); return false;">' +
+    botones.innerHTML = '<a href="#" class="edit button" onclick="confirmarEditar(event); return false;">' +
                             '<span class="material-symbols-outlined">' +
                                 'edit' +
                             '</span>' +
@@ -241,8 +241,13 @@ function guardar(event){
 function esNumero(valor) {
     return !isNaN(parseFloat(valor)) && isFinite(valor);
 }
-function activarBorrar(){
+function activarBorrar(boton){
     borrar = !borrar;
+    boton.innerHTML = '<a href="#" class="delete button" onclick="confirmacionSalir(event); return true;">' +
+    '<span class="material-symbols-outlined">' +
+        'close' +
+    '</span>' +
+'</a>';
     var tabla = document.getElementById("pacto_aula");
     var filas = tabla.getElementsByTagName('tr');
 
