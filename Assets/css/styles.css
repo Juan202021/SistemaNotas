@@ -414,6 +414,133 @@ a.add.button:hover {
     background-color: #0071e2;
 }
 
+/* Estilos para add button 2*/
+a.add2.button {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+a.add2.button svg {
+    width: 44%;
+}
+
+a.add2.button:hover {
+    background-color: #0071e2;
+    overflow: visible;
+}
+
+.bin path {
+    transition: all 0.2s;
+}
+
+a.add2.button:hover .bin path {
+    fill: #fff;
+}
+
+a.add2.button:active {
+    transform: scale(0.98);
+}
+a.add2.button:hover .tooltip {
+    opacity: 1;
+}
+
+/* Estilos para edit button */
+a.edit.button {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+a.edit.button svg {
+    width: 44%;
+}
+
+a.edit.button:hover {
+    background-color: #0071e2;
+    overflow: visible;
+}
+
+.bin path {
+    transition: all 0.2s;
+}
+
+a.edit.button:hover .bin path {
+    fill: #fff;
+}
+
+a.edit.button:active {
+    transform: scale(0.98);
+}
+a.edit.button:hover .tooltip {
+    opacity: 1;
+}
+
+/* Estilos para edit button */
+a.save.button {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+a.save.button svg {
+    width: 44%;
+}
+
+a.save.button:hover {
+    background-color: #01d301;
+    overflow: visible;
+}
+
+.bin path {
+    transition: all 0.2s;
+}
+
+a.save.button:hover .bin path {
+    fill: #fff;
+}
+
+a.save.button:active {
+    transform: scale(0.98);
+}
+a.save.button:hover .tooltip {
+    opacity: 1;
+}
+
+
 /* Estilos para Delete button */
 /* a.delete.button {
     width: 50%;
@@ -525,7 +652,7 @@ a.delete.button:hover .tooltip {
     padding: 0;
     border-radius: 20px;
     border: 1px solid rgb(188, 188, 188);
-    overflow: scroll;
+    overflow: auto;
     overflow-x: hidden;
 }
 
