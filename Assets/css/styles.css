@@ -114,6 +114,16 @@ body {
     border: 2px solid rgb(188, 188, 188);
     border-radius: 30px;
 }
+.contenido-central2 {
+    background-color: white;
+    margin: 10px 10px;
+    min-height: 1500px;
+    max-height: 2600px;
+    width: 1500px;
+    border: 2px solid rgb(188, 188, 188);
+    border-radius: 30px;
+}
+
 
 /* .contenido-central-doble {
     background-color: white;
@@ -288,12 +298,12 @@ a.corte:hover {
 }
 
 a.button-big {
-    margin: 25px;
+    margin: 20px;
     display: block;
     /* Hace que el enlace sea un bloque para ocupar todo el ancho */
-    width: 220px;
+    width: 200px;
     height: 100px;
-    padding: 100px;
+    padding: 70px;
     color: rgb(0, 0, 0);
     text-decoration: none;
     font-size: 22pt;
@@ -683,8 +693,7 @@ footer {
 /*Estilos del reporte*/
 
 .container {
-    width: 80%;
-    margin: 0 auto;
+    margin: 0 200px;
 }
 
 h1 {
@@ -698,12 +707,13 @@ h1 {
 }
 
 #graficoPastel{
-    height: 65% !important;
-    width: 65% !important;
+    padding: 0 150px;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 canvas {
-    margin: 20px;
+    margin: 50px;
 }
 /* pacto_aula */
 

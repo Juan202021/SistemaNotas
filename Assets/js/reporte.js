@@ -116,18 +116,16 @@ function actualizarGraficas(notas){
     barrasChart = new Chart(ctxBarras, {
         type: 'bar',
         data: {
-            labels: ['Promedio', 'Mediana', 'Moda', 'Min', 'Max'],
+            labels: ['Promedio','Nota Mínima', 'Nota Máxima'],
             datasets: [{
                 label: 'Estadísticas',
                 data: [
                     calcularPromedio(notas),
-                    calcularMediana(notas),
-                    calcularModa(notas)[0],
                     Math.min(...notas),
                     Math.max(...notas)
                 ],
-                backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                borderColor: 'rgba(153, 102, 255, 1)',
+                backgroundColor: ['rgba(153, 102, 255, 0.2)','rgba(103, 102, 255, 0.2)','rgba(53, 102, 255, 0.2)'],
+                borderColor: ['rgba(153, 102, 255, 1)','rgba(103, 102, 255, 1)','rgba(53, 102, 255, 1)'],
                 borderWidth: 1
             }]
         },
@@ -148,7 +146,7 @@ function actualizarGraficas(notas){
         data: {
             labels: ['Aprobados', 'Reprobados'],
             datasets: [{
-                label: 'Aprobados vs Reprobados',
+                label: '',
                 data: [
                     notas.filter(nota => nota >= 3).length,
                     notas.filter(nota => nota < 3).length

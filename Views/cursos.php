@@ -31,15 +31,17 @@ $datos = $curController->readAll($_GET['cod_doc']);
 
                 </div>
             </div>
-            <ul class="lista" id="content">
-                <?php if ($datos) : ?>
-                    <?php foreach ($datos as $data) : ?>
-                        <li>
-                            <a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $data['año'] ?>&periodo=<?= $data['periodo'] ?>&cod_cur=<?= $data['cod_cur'] ?>" class='button-big'><?= $data['nomb_cur'] . '<br><br>' . $data['año'] . ' - ' . $data['periodo'] ?></a>
-                        </li>
-                    <?php endforeach ?>
-                <?php endif ?>
-            </ul>
+            <div class="border-content">
+                <ul class="lista" id="content">
+                    <?php if ($datos) : ?>
+                        <?php foreach ($datos as $data) : ?>
+                            <li>
+                                <a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $data['año'] ?>&periodo=<?= $data['periodo'] ?>&cod_cur=<?= $data['cod_cur'] ?>" class='button-big'><?= $data['nomb_cur'] . '<br><br>' . $data['año'] . ' - ' . $data['periodo'] ?></a>
+                            </li>
+                        <?php endforeach ?>
+                    <?php endif ?>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

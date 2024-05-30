@@ -15,25 +15,26 @@ $editarNotas = new EditarNotasControlador();
                 <hr>
                 <ul class="but">
                     <li><a href="inscritos.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons'>Inscritos</a></li>
-                    <li><a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $est[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a></li>
+                    <li><a href="inscribir.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Inscribir</a></li>
                     <li><a href="notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>" class='menu-izq-buttons selected'>Calificaciones</a></li>
                     <ul class="but2">
                         <li><a href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&corte=1&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Corte 1</a></li>
-                        <li><a href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&corte=1&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Corte 2</a></li>
-                        <li><a href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&corte=1&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Corte 3</a></li>
+                        <li><a href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&corte=2&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Corte 2</a></li>
+                        <li><a href="editar_notas.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&corte=3&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Corte 3</a></li>
                         <li><a href="pacto_aula.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Pacto de aula</a></li>
                     </ul>
-                    <li><a href="reporte.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $est[0]['nomb_cur'] ?>" class='menu-izq-buttons'>Estadísticas del curso</a></li>
+                    <li><a href="reporte.php?cod_doc=<?= $_GET['cod_doc'] ?>&año=<?= $_GET['año'] ?>&periodo=<?= $_GET['periodo'] ?>&cod_cur=<?= $_GET['cod_cur'] ?>&nomb_cur=<?= $_GET['nomb_cur'] ?>" class='menu-izq-buttons'>Estadísticas del curso</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="contenido-central">
-        <div>
+        <center class="sub-title">calificaciones Corte <?= $_GET['corte'] ?></center>
+        <div class="border-content">
             <div class="tbl">
 
                 <table id='actualizar_nota'>
-                    <caption class="sub-title">calificaciones</caption>
+                    
                     <?php $tabla = $editarNotas->tabla($_GET['cod_cur'], $_GET['corte']); ?>
                     <?php foreach ($tabla as $filas) : ?>
                         <?php echo $filas ?>

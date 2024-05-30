@@ -17,7 +17,7 @@
                                             JOIN info_nota i ON  i.cod_inf = c.cod_inf
                                             JOIN estudiante e ON e.cod_est = c.cod_est
                                             WHERE i.corte = :corte and c.cod_cur = :cod_cur
-                                            ORDER BY e.nomb_est, e.apell_est");
+                                            ORDER BY e.apell_est");
             $consulta->bindParam(':corte', $corte);
             $consulta->bindParam(':cod_cur', $cod_cur);
             $consulta->execute();
