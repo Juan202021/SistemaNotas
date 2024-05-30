@@ -1,8 +1,7 @@
-function abrirModal(funcionConfirmar, mensaje) {
+function abrirModal(funcionConfirmar, mensaje, ...args) {
     const modal = document.getElementById('myModal');
     var texto = document.getElementById('confirmacion');
     texto.innerText = mensaje;
-    console.log(texto);
     modal.style.display = 'block';
 
     const closeBtn = document.getElementsByClassName('close')[0];
@@ -14,8 +13,14 @@ function abrirModal(funcionConfirmar, mensaje) {
     confirmBtn.addEventListener('click', function() {
         // Ejecuta la función proporcionada como parámetro
         if (typeof funcionConfirmar === 'function') {
-            funcionConfirmar();
+            if (args.length > 0) {
+                funcionConfirmar(...args);
+            } else {
+                funcionConfirmar();
+            }
         }
+        funcionConfirmar = null;
+        args = [];
         modal.style.display = 'none';
     });
 
