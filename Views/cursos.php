@@ -20,8 +20,8 @@ $datos = $curController->readAll($_GET['cod_doc']);
                 <div class="filtro">
                     
                     <input type="text" id="nomb_cur" name="" placeholder="Buscar" class="ajuste-2">
-                    <select name="select-año" id="f2" class="ajuste-3">
-                        <option value="" disabled selected>Periodo</option>
+                    <select name="select-año" id="f2" class="ajuste-3" style="display: none;">
+                        <option value="" disabled selected >Periodo</option>
                         <?php if ($periodos) : ?>
                             <?php foreach ($periodos as $periodo) : ?>
                                 <option value="<?= $periodo['año'].'-' .$periodo['periodo'] ?>"><?= $periodo['año'] . '  -  ' . $periodo['periodo'] ?></option>
