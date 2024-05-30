@@ -37,11 +37,15 @@ $controlador = new PactoAulaControlador;
                                 <th>Actividad</th>
                                 <th>porcentaje</th>
                                 <th>Porcentaje total</th>
-                                <th></th>
+                                <th><a href="#" class="delete button" onclick="confirmarBorrar(); return false;">
+                                                <span class="material-symbols-outlined">
+                                                    delete
+                                                </span>
+                                            </a></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $info_nota = $controlador->getInfoNotas($_GET['cod_doc']); ?>
+                            <?php $info_nota = $controlador->getInfoNotas($_GET['cod_cur']); ?>
                             <?php foreach ($info_nota as $elemento) : ?>
                                 <?php echo $elemento; ?>
                             <?php endforeach; ?>

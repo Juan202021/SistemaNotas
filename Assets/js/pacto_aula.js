@@ -1,4 +1,5 @@
 var borrar = false;
+
 function espacioOcupado() {
     var rowspanArray = [];
     var tabla = document.getElementById("pacto_aula");
@@ -15,7 +16,28 @@ function espacioOcupado() {
     return rowspanArray;
 }
 
+function confirmarEditar(event){
+    abrirModal(editar,"Esta seguro de editar el pacto de aula", event);
+}
+
+function confirmarBorrar(){
+    abrirModal(activarBorrar, "Estas seguro de que quiere eliminar datos");
+}
+
+function borrarDefinitivo(celda){
+    abrirModal(borrarFila, "Esta seguro de que quiere borrar los datos de esta fila", celda);
+}
+
+function confirmarGuardar(event){
+    abrirModal(guardar, "Estas seguro de que deseas guardar los datos", event);
+}
+
+function confirmacionSalir(){
+    abrirModal(salir, "Esta seguro que quiere salir sin guardar los cambios");
+}
+
 function editar(event){
+
     var count = 0;
     var button = event.target;
     var fila = button.closest("tr");
@@ -50,7 +72,7 @@ function editar(event){
     }
 
     var botones = fila.querySelector(".botones");
-    botones.innerHTML = '<a href="#" class="save button" onclick="guardar(event); return true;">' +
+    botones.innerHTML = '<a href="#" class="save button" onclick="confirmarGuardar(event); return true;">' +
                                 '<span class="material-symbols-outlined">' +
                                     'check' +
                                 '</span>' +
@@ -61,7 +83,31 @@ function editar(event){
                                     'add' +
                                 '</span>' +
                                 '<span class="tooltip">Añadir Actividad</span>' +
+                            '</a>'+ 
+                            '<a href="#" class="delete button" onclick="confirmacionSalir(event); return true;">' +
+                                '<span class="material-symbols-outlined">' +
+                                    'close' +
+                                '</span>' +
+                                '<span class="tooltip">Cancelar</span>' +
                             '</a>';
+}
+
+function salir(){
+    var params = new URLSearchParams(window.location.search);
+    var keys = params.keys();
+    var nuevaURL = "pacto_aula.php?";
+    for (var key of keys) {
+        // Obtener el valor del parámetro usando la clave
+        var value = params.get(key);
+        // Agregar la clave y el valor a la nueva URL
+        nuevaURL += encodeURIComponent(key) + "=" + encodeURIComponent(value) + "&";
+    }
+
+    // Eliminar el último "&" si no hay más parámetros
+    nuevaURL = nuevaURL.slice(0, -1);
+
+    // Redirigir a la nueva página con los parámetros de la URL actual
+    window.location.href = nuevaURL;
 }
 
 function crear(event){
@@ -185,12 +231,6 @@ function guardar(event){
                                 'edit' +
                             '</span>' +
                             '<span class="tooltip">Guardar</span>' +
-                        '</a>' +
-                        '<a href="#" class="delete button" onclick="activarBorrar(); return false;">' +
-                            '<span class="material-symbols-outlined">'+
-                            'delete'+
-                            '</span>'+
-                            '<span class="tooltip">Eliminar</span>' +
                         '</a>';
                         setTimeout(function() {
                             location.reload();
@@ -203,6 +243,20 @@ function esNumero(valor) {
 }
 function activarBorrar(){
     borrar = !borrar;
+    var tabla = document.getElementById("pacto_aula");
+    var filas = tabla.getElementsByTagName('tr');
+
+    for(i = 1; i < filas.length; i++){
+        var celdas = filas[i].getElementsByTagName('td');
+        if(celdas.length > 2){
+            celdas[1].style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+            celdas[2].style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+        }else{
+            celdas[0].style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+            celdas[1].style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+        }
+    }
+    
 }
 function borrarFila(celda) {
     if(borrar){

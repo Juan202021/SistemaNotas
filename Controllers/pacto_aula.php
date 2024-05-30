@@ -25,21 +25,15 @@
                 if(!isset($datos[$i])){
                     $tabla = '<tr>'; 
                     $tabla .= '<td class="td-cent">'.($i+1).'</td>';
-                    $tabla .= '<td class="td-cent" contenteditable="false" cod_inf="0" onclick="borrarFila(this)">Nueva Actividad</td>';
-                    $tabla .= '<td class="td-cent" contenteditable="false" onclick="borrarFila(this)">Nuevo Porcentaje</td>';
+                    $tabla .= '<td class="td-cent" contenteditable="false" cod_inf="0" onclick="borrarDefinitivo(this)">Nueva Actividad</td>';
+                    $tabla .= '<td class="td-cent" contenteditable="false" onclick="borrarDefinitivo(this)">Nuevo Porcentaje</td>';
                     $tabla .= '<td class="td-cent">0</td>';
                     $tabla .= '<td class="td-der botones">
-                                    <a href="#" class="delete button" onclick="editar(event); return false;">
+                                    <a href="#" class="delete button" onclick="confirmarEditar(event); return false;">
                                         <span class="material-symbols-outlined">
                                             edit
                                         </span>
                                         <span class="tooltip">Editar</span>
-                                    </a>
-                                    <a href="#" class="delete button" onclick="activarBorrar(); return false;">
-                                        <span class="material-symbols-outlined">
-                                            delete
-                                        </span>
-                                        <span class="tooltip">Eliminar</span>
                                     </a>
                                 </td>';
                     $tabla .= '</tr>'; 
@@ -47,23 +41,18 @@
                     $tabla = '<tr>'; 
                     $tabla .= '<td class="td-cent" rowspan="'.count($datos[$i]['detalle']).'"> '.($i+1).'</td>';
                     for($j = 0; $j < count($datos[$i]['detalle']); $j++){
-                        $tabla .= '<td class="td-cent" contenteditable="false" cod_info="'.$datos[$i]['cod_inf'][$j].'" onclick="borrarFila(this)">'.$datos[$i]['detalle'][$j].'</td>';
-                        $tabla .= '<td class="td-cent" contenteditable="false" onclick="borrarFila(this)">'.($datos[$i]['porcentaje'][$j] * 100).'</td>';
+                        $tabla .= '<td class="td-cent" contenteditable="false" cod_info="'.$datos[$i]['cod_inf'][$j].'" onclick="borrarDefinitivo(this)">'.$datos[$i]['detalle'][$j].'</td>';
+                        $tabla .= '<td class="td-cent" contenteditable="false" onclick="borrarDefinitivo(this)">'.($datos[$i]['porcentaje'][$j] * 100).'</td>';
                         if($j == 0){
                             $tabla .= '<td class="td-cent" rowspan="'.count($datos[$i]['detalle']).'">'.$datos[$i]['porcentajeTotal'].'</td>';
                             $tabla .= '<td rowspan="'.count($datos[$i]['detalle']).'" class="td-der botones">
-                                            <a href="#" class="delete button" onclick="editar(event); return false;">
+                                            <a href="#" class="delete button" onclick="confirmarEditar(event); return false;">
                                                 <span class="material-symbols-outlined">
                                                     edit
                                                 </span>
                                                 <span class="tooltip">Editar</span>
                                             </a>
-                                            <a href="#" class="delete button" onclick="activarBorrar(); return false;">
-                                                <span class="material-symbols-outlined">
-                                                    delete
-                                                </span>
-                                                <span class="tooltip">Eliminar</span>
-                                            </a>
+                                            
                                         </td>';
                         }
                         $tabla .= '</tr>'; 
