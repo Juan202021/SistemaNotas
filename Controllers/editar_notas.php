@@ -20,7 +20,7 @@ class EditarNotasControlador {
             $encabezado .= '<th cod_inf="' . $info['cod_inf'] . '">' . $info['detalle'] . '</th>';
         }
     
-        $encabezado .= '<th style="border: none"> <a href="#" class="delete button" onclick="guardar(); return true;">' .
+        $encabezado .= '<th style="border: none"> <a href="#" class="delete button" onclick="pregunta(); return true;">' .
                     '<span class="material-symbols-outlined">check</span>' .
                     '<span class="tooltip">Guardar</span>' .
                     '</a></th>';

@@ -34,7 +34,6 @@
                     if ($posicion != -1) {
                         $datos[$posicion]['nota'][] = $resultado['nota'];
                         $datos[$posicion]['cod_inf'][] = $resultado['cod_inf'];
-                        
                         // Ordenar el array de cod_inf y sincronizar el array de notas
                         array_multisort($datos[$posicion]['cod_inf'], SORT_ASC, $datos[$posicion]['nota']);
                     } else {

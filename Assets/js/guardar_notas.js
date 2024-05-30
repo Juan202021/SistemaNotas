@@ -1,3 +1,7 @@
+function pregunta(){
+    abrirModal(guardar, "Se modificaran las notas, Seguro de querer continuar");
+}
+
 function guardar() {
     var notas = [];
     var tabla = document.getElementById('actualizar_nota');
@@ -14,13 +18,10 @@ function guardar() {
             for (var j = 1; j < celdas.length; j++) {
                 cod_inf.push(celdas[j].getAttribute("cod_inf"));
                 nota.push(celdas[j].innerText);
-                console.log(j);
-                console.log(cod_inf);
             }
             notasNuevas['cod_inf'] = cod_inf;
             notasNuevas['nota'] = nota;
             notas.push(notasNuevas);
-            
         }
         
     }
@@ -34,12 +35,13 @@ function enviarDatos(datos) {
     // Crear un objeto XMLHttpRequest
     var xhr = new XMLHttpRequest();
     var params = new URLSearchParams(window.location.search);
-
+    var keys = params.keys();
+    
     var info_notas = {
         curso: params.get('cod_cur'),
         datos: datos
     };
-    console.log(info_notas);
+    //console.log(info_notas);
     // Especificar la URL y el método de la solicitud
     var url = "../Controllers/editar_notas.php";
     xhr.open("POST", url, true);
@@ -52,7 +54,20 @@ function enviarDatos(datos) {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // La solicitud se completó con éxito
             console.log(xhr.responseText);
-            //window.location.replace("notas.php?" + );
+            // Construir una nueva URL con las claves y valores de los parámetros
+            var nuevaURL = "notas.php?";
+            for (var key of keys) {
+                // Obtener el valor del parámetro usando la clave
+                var value = params.get(key);
+                // Agregar la clave y el valor a la nueva URL
+                nuevaURL += encodeURIComponent(key) + "=" + encodeURIComponent(value) + "&";
+            }
+
+            // Eliminar el último "&" si no hay más parámetros
+            nuevaURL = nuevaURL.slice(0, -1);
+
+            // Redirigir a la nueva página con los parámetros de la URL actual
+            window.location.href = nuevaURL;
         }
     };
 
