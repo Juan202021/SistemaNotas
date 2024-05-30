@@ -36,7 +36,7 @@ $controlador = new PactoAulaControlador;
                                 <th>Corte</th>
                                 <th>Actividad</th>
                                 <th>porcentaje</th>
-                                <th class="td-der">Porcentaje total</th>
+                                <th>Porcentaje total</th>
                                 <th></th>
                             </tr>
                         </thead>
