@@ -113,7 +113,7 @@
                 $_SESSION['id'] = $inicioM->getId($consulta["cod_user"], $consulta["tipo_user"]);
                 echo '<h2>' . $_SESSION['id'] . '</h2>';
                 //los mando a el inicio de la web
-                header("Location: ../Views/inicio.php");
+                header("Location: ../Views/inicio.php?cod_doc=" . $_SESSION['id']);
                 exit();
             }else{
                 //si no es igual le digo al usuario que no es la contraseña
