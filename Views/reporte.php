@@ -22,24 +22,25 @@ include_once('/var/www/html/SistemaNotas/Controllers/reporte.php');
             </div>
         </div>
     </div>
-    <div class="contenido-central">
+    <div class="contenido-central2">
         <div class="container">
-            <h1>Estadísticas de Notas</h1>
-            <select id="corte" onchange="corte()" class="ajuste-1" style="min-width: max-content">
+            <center class="sub-title">Estadísticas de Notas</center>
+            <select id="corte" onchange="corte()" class="ajuste-1" style="min-width: max-content" >
                 <option value="" disabled>seleccione el corte</option>
                 <option value="1">corte 1</option>
                 <option value="2">corte 2</option>
                 <option value="3">corte 3</option>
-                <option value="4" selected>definitivas</option>
+                <option value="4" selected>Definitivas</option>
             </select>
             <select name="infoNotas" id="detalles" onchange="sacarNotas()" class="ajuste-1" style="min-width: max-content">
                 <option value="" disabled selected>seleccione la nota</option>
             </select>
             <div id="graficos">
                 <!-- Espacio para gráficos -->
-                <canvas id="histograma" width="400" height="200"></canvas>
-                <canvas id="graficoBarras" width="400" height="200"></canvas>
-                <canvas id="graficoPastel" ></canvas>
+                <canvas id="histograma" width="250" height="50"></canvas>
+                <canvas id="graficoBarras" width="250" height="100"></canvas>
+                <h1>Aprobados y Reprobados</h1>
+                <canvas id="graficoPastel"></canvas>
             </div>
         </div>
     </div>
