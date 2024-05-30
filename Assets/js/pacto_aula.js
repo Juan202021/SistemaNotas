@@ -50,13 +50,13 @@ function editar(event){
     }
 
     var botones = fila.querySelector(".botones");
-    botones.innerHTML = '<a href="#" class="delete button" onclick="guardar(event); return true;">' +
+    botones.innerHTML = '<a href="#" class="save button" onclick="guardar(event); return true;">' +
                                 '<span class="material-symbols-outlined">' +
                                     'check' +
                                 '</span>' +
                                 '<span class="tooltip">Guradar</span>' +
                             '</a>'+
-                            '<a href="#" class="delete button" onclick="crear(event); return true;">' +
+                            '<a href="#" class="add2 button" onclick="crear(event); return true;">' +
                                 '<span class="material-symbols-outlined">' +
                                     'add' +
                                 '</span>' +
@@ -180,7 +180,7 @@ function guardar(event){
     }
     enviarDatos(inf_nota, "guardar");
     var botones = fila.querySelector(".botones");
-    botones.innerHTML = '<a href="#" class="delete button" onclick="editar(event); return false;">' +
+    botones.innerHTML = '<a href="#" class="edit button" onclick="editar(event); return false;">' +
                             '<span class="material-symbols-outlined">' +
                                 'edit' +
                             '</span>' +

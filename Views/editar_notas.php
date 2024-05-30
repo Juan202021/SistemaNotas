@@ -38,6 +38,5 @@ $editarNotas = new EditarNotasControlador();
 </div>
 
 <?php
-echo "<br><br><br>";
 include_once("/var/www/html/SistemaNotas/Views/footer.php");
 ?>
