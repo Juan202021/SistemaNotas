@@ -21,14 +21,13 @@ class ReporteControlador {
     }
 
     public function manejarPeticion() {
-        if (isset($_GET['corte']) && $_GET['corte'] != '' && isset($_GET['cod_cur']) && $_GET['cod_cur'] != '') {
+        if(isset($_GET['año']) && isset($_GET['periodo']) && isset($_GET['cod_doc']) && isset($_GET['cod_cur']) && isset($_GET['corte'])) { 
+            header('Content-Type: application/json');
+            echo json_encode($this->modelo->getDefNotas($_GET['año'],$_GET['periodo'], $_GET['cod_doc'], $_GET['cod_cur'], $_GET['corte']));
+        }else if (isset($_GET['corte']) && $_GET['corte'] != '' && isset($_GET['cod_cur']) && $_GET['cod_cur'] != '') {
             header('Content-Type: application/json');
             echo json_encode($this->getInfoNotas($_GET['corte'], $_GET['cod_cur']));
         } else if(isset($_GET['cod_inf']) && $_GET['cod_inf'] != ''){
-            header('Content-Type: application/json');
-            echo json_encode($this->getNotas($_GET['cod_inf']));
-        }else { 
-            $this->modelo->getDefNotas($_GET['año'],$_GET['$periodo'], $_GET['$cod_doc'], $_GET['$cod_cur'], $_GET['$corte']);
             header('Content-Type: application/json');
             echo json_encode($this->getNotas($_GET['cod_inf']));
         }

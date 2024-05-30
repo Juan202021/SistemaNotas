@@ -20,13 +20,23 @@ class calificacionesModel
     }
     function notas_corte($cod_doc, $año, $periodo, $cod_cur, $corte)
     {
-        $statement = $this->conn->prepare("SELECT e.apell_est, e.nomb_est, 
-        ROUND(SUM(ca.nota*inf.porcentaje/0.3)::numeric,1) FROM estudiante e JOIN inscritos i 
-        ON i.cod_est=e.cod_est JOIN curso c ON c.cod_cur=i.cod_cur JOIN calificacion ca 
-        ON ca.cod_cur=i.cod_cur AND ca.cod_est=i.cod_est AND ca.año=i.año 
-        AND ca.periodo=i.periodo JOIN info_nota inf ON inf.cod_inf=ca.cod_inf 
-        WHERE i.año=$año AND i.periodo=$periodo AND c.cod_doc=$cod_doc AND c.cod_cur=$cod_cur
-        AND inf.corte=$corte GROUP BY e.apell_est,e.nomb_est");
+        if($corte != 3){
+            $statement = $this->conn->prepare("SELECT e.apell_est, e.nomb_est, 
+            ROUND(SUM(ca.nota*inf.porcentaje/0.3)::numeric,1) FROM estudiante e JOIN inscritos i 
+            ON i.cod_est=e.cod_est JOIN curso c ON c.cod_cur=i.cod_cur JOIN calificacion ca 
+            ON ca.cod_cur=i.cod_cur AND ca.cod_est=i.cod_est AND ca.año=i.año 
+            AND ca.periodo=i.periodo JOIN info_nota inf ON inf.cod_inf=ca.cod_inf 
+            WHERE i.año=$año AND i.periodo=$periodo AND c.cod_doc=$cod_doc AND c.cod_cur=$cod_cur
+            AND inf.corte=$corte GROUP BY e.apell_est,e.nomb_est");
+        }else{
+            $statement = $this->conn->prepare("SELECT e.apell_est, e.nomb_est, 
+            ROUND(SUM(ca.nota*inf.porcentaje/0.4)::numeric,1) FROM estudiante e JOIN inscritos i 
+            ON i.cod_est=e.cod_est JOIN curso c ON c.cod_cur=i.cod_cur JOIN calificacion ca 
+            ON ca.cod_cur=i.cod_cur AND ca.cod_est=i.cod_est AND ca.año=i.año 
+            AND ca.periodo=i.periodo JOIN info_nota inf ON inf.cod_inf=ca.cod_inf 
+            WHERE i.año=$año AND i.periodo=$periodo AND c.cod_doc=$cod_doc AND c.cod_cur=$cod_cur
+            AND inf.corte=$corte GROUP BY e.apell_est,e.nomb_est");
+        }
         return ($statement->execute()) ? $statement->fetchAll() : false;
     }
     function coincide($apell_est, $nomb_est, $datos)

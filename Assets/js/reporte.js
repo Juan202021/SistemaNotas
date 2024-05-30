@@ -17,6 +17,7 @@ function defecto(){
         options.text = opcion.text;
         menuDesplegable.appendChild(options);
     });
+    sacarNotas();
 }
 
 function corte(){
@@ -66,22 +67,41 @@ function mostrarInfoNotas(infNotas){
 
 function sacarNotas(){
     const seleccion = document.getElementById('detalles').value;
+    var params = new URLSearchParams(window.location.search);
 
-    fetch(`../Controllers/reporte.php?cod_inf=${seleccion}`)
-    .then(response => { 
-        if(!response.ok){
-            throw new Error('Error en la red');
-        }
-        return response.json();
-    })
-    .then(notas => {
-        if(notas.Error){
-        console.error('error', notas.error);
-            return
-        }
-        notas = notas.map(parseFloat)
-        actualizarGraficas(notas);
-    })
+    if(seleccion.toLowerCase().startsWith("d")){
+        fetch(`../Controllers/reporte.php?año=${params.get('año')}&cod_doc=${params.get('cod_doc')}&periodo=${params.get('periodo')}&cod_cur=${params.get('cod_cur')}&corte=${seleccion.substring(1)}`)
+        .then(response => { 
+            if(!response.ok){
+                throw new Error('Error en la red');
+            }
+            return response.json();
+        })
+        .then(notas => {
+            if(notas.Error){
+            console.error('error', notas.error);
+                return
+            }
+            notas = notas.map(parseFloat)
+            actualizarGraficas(notas);
+        })
+    }else{
+        fetch(`../Controllers/reporte.php?cod_inf=${seleccion}`)
+        .then(response => { 
+            if(!response.ok){
+                throw new Error('Error en la red');
+            }
+            return response.json();
+            })
+            .then(notas => {
+                if(notas.Error){
+                console.error('error', notas.error);
+                    return
+                }
+                notas = notas.map(parseFloat)
+                actualizarGraficas(notas);
+            })
+    }
     
 }
 
