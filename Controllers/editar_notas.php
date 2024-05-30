@@ -15,7 +15,7 @@ class EditarNotasControlador {
     
         $tabla = [];
         $encabezado = '<thead><tr>';
-        $encabezado .= '<th>Cod.</th>';
+        // $encabezado .= '<th>Cod.</th>';
         $encabezado .= '<th>Nombre</th>';
         foreach($info_notas as $info) {
             $encabezado .= '<th cod_inf="' . $info['cod_inf'] . '">' . $info['detalle'] . '</th>';
@@ -32,7 +32,7 @@ class EditarNotasControlador {
     
         foreach ($notas as $nota) {
             $cuerpo .= '<tr>';
-            $cuerpo .= '<td cod_est="' . $nota['cod_est'] . '" align="center">' .$nota['cod_est'].'</td>';
+            // $cuerpo .= '<td cod_est="' . $nota['cod_est'] . '" align="center">' .$nota['cod_est'].'</td>';
             $cuerpo .= '<td cod_est="' . $nota['cod_est'] . '">' . $nota['apell_est'] . ' ' . $nota['nomb_est'] . '</td>';
     
             for ($i = 0; $i < count($nota['nota']); $i++) {
