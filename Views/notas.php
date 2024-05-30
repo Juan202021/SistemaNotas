@@ -47,15 +47,9 @@ $notas_corte3 = $notasController->notas_corte($_GET['cod_doc'], $_GET['año'], $
                         <tr>
                             <th>Cod.</th>
                             <th>Nombre</th>
-                            <th>
-                                <a>Corte 1</a>
-                            </th>
-                            <th>
-                                <a>Corte 2</a>
-                            </th>
-                            <th>
-                                <a>Corte 3</a>
-                            </th>
+                            <th>Corte 1</th>
+                            <th>Corte 2</th>
+                            <th>Corte 3</th>
                             <th>Definitiva</th>
                         </tr>
                     </thead>

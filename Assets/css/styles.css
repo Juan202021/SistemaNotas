@@ -288,12 +288,12 @@ a.corte:hover {
 }
 
 a.button-big {
-    margin: 25px;
+    margin: 20px;
     display: block;
     /* Hace que el enlace sea un bloque para ocupar todo el ancho */
-    width: 220px;
+    width: 200px;
     height: 100px;
-    padding: 100px;
+    padding: 70px;
     color: rgb(0, 0, 0);
     text-decoration: none;
     font-size: 22pt;
