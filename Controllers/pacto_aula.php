@@ -9,46 +9,7 @@
         }
 
         public function getDatosNotas($cod_cur){
-            $orden = [1, 2, 3];
-            $info_nota = $this->pactoAula->getInfoNotas($cod_cur);
-
-            // Ordenar el array $info_nota
-            usort($info_nota, function ($a, $b) use ($orden){
-                $posA = array_search($a['corte'], $orden);
-                $posB = array_search($b['corte'], $orden);
-                return $posA - $posB;
-            });
-
-            // Retornar el array ordenado
-            return $info_nota;
-        }
-
-        public function getCantidadNotas($info_nota){
-            $tamaño = array_fill(0, 3, 0);
-            foreach ($info_nota as $elemento){
-                if($elemento['corte'] == 1){
-                    $tamaño[0]++;
-                }else if($elemento['corte'] == 2){
-                    $tamaño[1]++;
-                }else if($elemento['corte'] == 3){
-                    $tamaño[2]++;
-                }
-            }
-            return $tamaño;
-        }  
-
-        public function getPorcentaje($info_nota){
-            $porcentaje = array_fill(0, 3, 0);
-            foreach ($info_nota as $elemento){
-                if($elemento['corte'] == 1){
-                    $porcentaje[0] += $elemento['porcentaje'] * 100;
-                }else if($elemento['corte'] == 2){
-                    $porcentaje[1] += $elemento['porcentaje'] * 100;
-                }else if($elemento['corte'] == 3){
-                    $porcentaje[2] += $elemento['porcentaje'] * 100;
-                }
-            }
-            return $porcentaje;
+            return $this->pactoAula->getInfoNotas($cod_cur);
         }
 
         public function eliminar($cod_inf){
@@ -57,19 +18,16 @@
         }
 
         public function getInfoNotas($cod_cur){
-            $posicion = 0;
             $datos = $this->getDatosNotas($cod_cur);
-            $tamaño = $this->getCantidadNotas($datos);
-            $porcentaje = $this->getPorcentaje($datos);
             $info_nota = [];
 
             for($i = 0; $i < 3; $i++){
-                if($tamaño[$i] == 0){
+                if(!isset($datos[$i])){
                     $tabla = '<tr>'; 
                     $tabla .= '<td class="td-cent">'.($i+1).'</td>';
                     $tabla .= '<td class="td-cent" contenteditable="false" cod_inf="0" onclick="borrarFila(this)">Nueva Actividad</td>';
                     $tabla .= '<td class="td-cent" contenteditable="false" onclick="borrarFila(this)">Nuevo Porcentaje</td>';
-                    $tabla .= '<td class="td-cent">'.$porcentaje[$i].'</td>';
+                    $tabla .= '<td class="td-cent">0</td>';
                     $tabla .= '<td class="td-der botones">
                                     <a href="#" class="delete button" onclick="editar(event); return false;">
                                         <span class="material-symbols-outlined">
@@ -87,13 +45,13 @@
                     $tabla .= '</tr>'; 
                 }else{
                     $tabla = '<tr>'; 
-                    $tabla .= '<td class="td-cent" rowspan="'.$tamaño[$i].'"> '.($i+1).'</td>';
-                    for($j = 0; $j < $tamaño[$i]; $j++){
-                        $tabla .= '<td class="td-cent" contenteditable="false" cod_info="'.$datos[$posicion]['cod_inf'].'" onclick="borrarFila(this)">'.$datos[$posicion]['detalle'].'</td>';
-                        $tabla .= '<td class="td-cent" contenteditable="false" onclick="borrarFila(this)">'.($datos[$posicion]['porcentaje'] * 100).'</td>';
+                    $tabla .= '<td class="td-cent" rowspan="'.count($datos[$i]['detalle']).'"> '.($i+1).'</td>';
+                    for($j = 0; $j < count($datos[$i]['detalle']); $j++){
+                        $tabla .= '<td class="td-cent" contenteditable="false" cod_info="'.$datos[$i]['cod_inf'][$j].'" onclick="borrarFila(this)">'.$datos[$i]['detalle'][$j].'</td>';
+                        $tabla .= '<td class="td-cent" contenteditable="false" onclick="borrarFila(this)">'.($datos[$i]['porcentaje'][$j] * 100).'</td>';
                         if($j == 0){
-                            $tabla .= '<td class="td-cent" rowspan="'.$tamaño[$i].'">'.$porcentaje[$i].'</td>';
-                            $tabla .= '<td rowspan="'.$tamaño[$i].'" class="td-der botones">
+                            $tabla .= '<td class="td-cent" rowspan="'.count($datos[$i]['detalle']).'">'.$datos[$i]['porcentajeTotal'].'</td>';
+                            $tabla .= '<td rowspan="'.count($datos[$i]['detalle']).'" class="td-der botones">
                                             <a href="#" class="delete button" onclick="editar(event); return false;">
                                                 <span class="material-symbols-outlined">
                                                     edit
@@ -109,9 +67,7 @@
                                         </td>';
                         }
                         $tabla .= '</tr>'; 
-                        // Incrementa la posición en cada iteración del bucle interno
-                        $posicion++;
-                        if($j < $tamaño[$i]-1){
+                        if($j < count($datos[$i]['detalle'])-1){
                             $tabla .= '<tr>'; 
                         }
                         
